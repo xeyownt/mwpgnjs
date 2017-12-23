@@ -1,0 +1,3 @@
+[submodule "PgnViewerJS"]
+	path = PgnViewerJS
+	url = https://github.com/mliebelt/PgnViewerJS.git
