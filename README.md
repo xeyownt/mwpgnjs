@@ -9,38 +9,32 @@ Currently this extension is in *alpha* status (still in development). It works f
 
 Tested on
 * Mediawiki 1.27.4.
-* Mediawiki 1.22.1 (older version of this extension).
+* Mediawiki 1.22.1.
 
 ## Installation
 
-For now the extension is still in development status, so the easiest is to clone the whole repository
-into your MediaWiki `extensions` folder:
-```bash
-cd /path/to/wiki/extensions
-git clone --recursive https://github.com/xeyownt/mwpgnjs.git PgnJS
-```
-Don't forget the `--recursive` keyword since the extension uses submodules.
+The simplest is to clone the git repository in folder `extensions` of your wiki and run the `install`
+target (for MW 1.25 or above) or `install-1.24` (for MW 1.24 or older):
 
-Then add at the bottom of your `LocalSettings.php` file:
+```bash
+cd /path/to/your/wiki/extensions
+git clone --recursive --depth 1 https://github.com/xeyownt/mwpgnjs PgnJS
+cd PgnJS
+make install             # For MW 1.25 or above
+make install-1.24        # For MW 1.24 or older
+```
+Don't forget the `--recursive` option since the extension uses git submodules.
+
+`make install` / `make install-1.24` will delete all files that are not necessary for the extension to
+run, and add the following line at the end of `LocalSettings.php`:
 ```php
 // For MW 1.25 or above:
 wfLoadExtension( 'PgnJS' );
-// For MW 1.24 or earlier:
+// For MW 1.24 or older:
 require_once "$IP/extensions/PgnJS/PgnJS.php";
 ```
 
 Done! Navigate to `Special:Version` on your wiki to verify that the extension is successfully installed.
-
-### Update
-
-To update the extension:
-
-```
-cd /path/to/wiki/extensions/PgnJS
-git pull --recurse-submodules=yes origin
-```
-
-Again, don't forget the `--recurse-submodules` since the extension uses submodules.
 
 ## Usage
 The extension provides a new tag `<pgn>`.
