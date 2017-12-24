@@ -20,6 +20,7 @@ all:
 .PHONY: install-clean
 install-clean:
 	rm -rf .git COPYING doc Makefile README.md
+	mv PgnViewerJS/dist . && rm -rf PgnViewerJS && mkdir PgnViewerJS && mv dist PgnViewerJS
 
 .PHONY: install
 install: install-clean
