@@ -20,7 +20,8 @@
     "ResourceModules": {
         "ext.PgnJS.styles": {
             "styles": [
-                "PgnViewerJS/dist/css/pgnvjs.css"
+                "PgnViewerJS/dist/css/pgnvjs.css",
+                "PgnJS.css"
             ],
             "position": "top"
         }

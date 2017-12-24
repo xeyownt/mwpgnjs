@@ -26,7 +26,7 @@ if ( function_exists( 'wfLoadExtension' ) ) {
     $wgResourceModules['ext.PgnJS.styles'] = array(
         'localBasePath' => __DIR__,
         'remoteExtPath' => 'PgnJS',
-        'styles'        => 'PgnViewerJS/dist/css/pgnvjs.css',
+        'styles'        => array( 'PgnViewerJS/dist/css/pgnvjs.css', 'PgnJS.css' ),
         'position'      => 'top',
     );
 
