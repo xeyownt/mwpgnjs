@@ -1,0 +1,33 @@
+{
+    "name": "PgnJS",
+    "author": "Michaël Peeters",
+    "url": "http://www.mediawiki.org/wiki/Extension:PgnJS",
+    "description": "Embed chess games (boards and moves) in wiki page",
+    "version": "0.1.0",
+    "license-name": "Apache-2.0",
+    "type": "parserhook",
+    "AutoloadClasses": {
+        "PgnJSHooks": "PgnJS.hooks.php"
+    },
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"PgnJSHooks::onParserFirstCallInit"
+		],
+		"BeforePageDisplay": [
+			"PgnJSHooks::onBeforePageDisplay"
+		]
+	},
+    "ResourceModules": {
+        "ext.PgnJS.styles": {
+            "styles": [
+                "PgnViewerJS/dist/css/pgnvjs.css"
+            ],
+            "position": "top"
+        }
+    },
+    "ResourceFileModulePaths": {
+        "localBasePath": "",
+        "remoteExtPath": "PgnJS"
+    },
+    "manifest_version": 1
+}
