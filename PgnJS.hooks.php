@@ -18,17 +18,9 @@ class PgnJSHooks {
         $parser->setHook( 'pgn', 'PgnJSHooks::parserHook' );
     }
 
-    public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
-        global $wgExtensionAssetsPath;
-
-        $script = "<script type=\"text/javascript\" src=\"$wgExtensionAssetsPath/PgnJS/PgnViewerJS/dist/js/pgnvjs.js\"></script>";
-         $out->addHeadItem("itemName", $script);
-        return true;
-    }
-
     public static function parserHook( $input, array $args, Parser $parser, PPFrame $frame ) {
         // Tell ResourceLoader that we need our css module
-        $parser->getOutput()->addModuleStyles( 'ext.PgnJS.styles' );
+        $parser->getOutput()->addModules( 'ext.PgnJS' );
 
         return PgnJS::renderPgnjs($parser, $input, $args);
     }
@@ -42,7 +34,8 @@ class PgnJS {
     static public function renderPgnjs( $parser, $input, array $args ) {
         $style = isset($args[self::STYLE]) ? $args[self::STYLE] : "width: 240px";
         $id    = ++self::$board_id;
-        return "<div id=\"b$id\" style=\"$style\"></div><script>var board = pgnView('b$id', {pgn: \"$input\"});</script>";
+        $script = "<script>window.PgnJSBoards = window.PgnJSBoards || {}; window.PgnJSBoards.b$id = \"$input\";</script>";
+        return "<div id=\"b$id\" style=\"$style\"></div>$script";
     }
 }
 
