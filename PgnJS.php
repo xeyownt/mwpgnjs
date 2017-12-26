@@ -21,12 +21,23 @@ if ( function_exists( 'wfLoadExtension' ) ) {
     return true;
 } else {
     $wgHooks['ParserFirstCallInit'][] = 'PgnJSHooks::onParserFirstCallInit';
-    $wgHooks['BeforePageDisplay'][] = 'PgnJSHooks::onBeforePageDisplay';
 
-    $wgResourceModules['ext.PgnJS.styles'] = array(
+    $wgResourceModules['ext.PgnJS'] = array(
         'localBasePath' => __DIR__,
         'remoteExtPath' => 'PgnJS',
         'styles'        => array( 'PgnViewerJS/dist/css/pgnvjs.css', 'PgnJS.css' ),
+        'scripts'       => array( 'PgnViewerJS/js/jquery-ui.js',
+                'PgnViewerJS/chess.js/chess.js',
+                'PgnViewerJS/chessboardjs/js/chessboard.js',
+                'PgnViewerJS/chessboardjs/js/json3.min.js',
+                'PgnViewerJS/js/mousetrap.js',
+                'PgnViewerJS/js/jquery.multiselect.js',
+                'PgnViewerJS/js/jquery.timer.js',
+                'PgnViewerJS/js/pgn.js',
+                'PgnViewerJS/js/pgn-parser.js',
+                'PgnViewerJS/js/pgnvjs.js',
+                'PgnViewerJS/js/i18next-1.11.2.js',
+                'PgnJS.js' ),
         'position'      => 'top',
     );
 
