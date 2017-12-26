@@ -1,10 +1,14 @@
 # PgnJS
+
 PgnJS is a MediaWiki extension that embeds chess games (boards and moves) in a wiki page. Chess games are
 simply given in PGN format in a `<pgn>` tag and displayed thanks to the powerful javascript engine
-[**PgnViewerJS**](https://github.com/mliebelt/PgnViewerJS). In fact most of the functionality is provided by
-PgnViewerJS. This extension only implements the parsing of the `<pgn>` tag.
+[**PgnViewerJS**](https://github.com/mliebelt/PgnViewerJS). In fact most of the functionality is provided
+by PgnViewerJS. This extension only implements the parsing of the `<pgn>` tag.
+
+<p align="center"><img src="img/screenshot.png"></p>
 
 ## Status
+
 Currently this extension is in *alpha* status (still in development). It works for me on my wiki.
 
 Tested on
@@ -37,6 +41,7 @@ require_once "$IP/extensions/PgnJS/PgnJS.php";
 Done! Navigate to `Special:Version` on your wiki to verify that the extension is successfully installed.
 
 ## Usage
+
 The extension provides a new tag `<pgn>`.
 
 To embed a new chess game on your page, simply enclose the PGN representation of that game in a `<pgn>`
@@ -53,3 +58,6 @@ Code                  | Result
 ## Links
 
 * [**PgnViewerJS** on GitHub](https://github.com/mliebelt/PgnViewerJS).
+
+
+[//]: # ( vim: set tw=105: )
