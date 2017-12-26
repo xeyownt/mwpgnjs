@@ -57,6 +57,7 @@ Code                  | Result
 
 ## Links
 
+* [**PgnJS** extension on MediaWiki](https://www.mediawiki.org/wiki/Extension:PgnJS).
 * [**PgnViewerJS** on GitHub](https://github.com/mliebelt/PgnViewerJS).
 
 
