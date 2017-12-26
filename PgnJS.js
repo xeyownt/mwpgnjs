@@ -4,8 +4,14 @@
 $.i18n = $.i18n || module.exports;
 i18n = $.i18n;
 
-for (var boardId in window.PgnJSBoards) { 
-    console.warn( 'Found a board ' + boardId + ' in window: ' + window.PgnJSBoards[boardId]);
-    window.PgnJSBoards[boardId] = pgnView(boardId, { pgn: window.PgnJSBoards[boardId] });
-}
+console.log('PgnJS.js loaded');
+
+$( function () {
+    // This code must not be executed before the document is loaded.
+    var pgnJSBoards = mw.config.get("pgnJSBoards");
+    for (var id in pgnJSBoards) { 
+        console.log( 'Found a board ' + id + ' in window: ' + pgnJSBoards[id]);
+        pgnJSBoards[id] = (pgnJSBoards[id]) ? pgnView(id, { pgn: pgnJSBoards[id] }) : pgnBoard(id, {});
+    }
+} );
 

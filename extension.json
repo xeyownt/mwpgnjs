@@ -9,11 +9,14 @@
     "AutoloadClasses": {
         "PgnJSHooks": "PgnJS.hooks.php"
     },
-	"Hooks": {
-		"ParserFirstCallInit": [
-			"PgnJSHooks::onParserFirstCallInit"
-		]
-	},
+    "Hooks": {
+        "ParserFirstCallInit": [
+            "PgnJSHooks::onParserFirstCallInit"
+        ],
+        "BeforePageDisplay": [
+            "PgnJSHooks::onBeforePageDisplay"
+        ]
+    },
     "ResourceModules": {
         "ext.PgnJS": {
             "styles": [

@@ -13,6 +13,13 @@
  */
 
 class PgnJSHooks {
+    private static $boards = array();
+
+    public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
+        $out->addJsConfigVars( 'pgnJSBoards', self::$boards );
+        return true;
+    }
+
     public static function onParserFirstCallInit( Parser &$parser ) {
         // Register parser handler for tag <pgn>
         $parser->setHook( 'pgn', 'PgnJSHooks::parserHook' );
@@ -22,7 +29,7 @@ class PgnJSHooks {
         // Tell ResourceLoader that we need our css module
         $parser->getOutput()->addModules( 'ext.PgnJS' );
 
-        return PgnJS::renderPgnjs($parser, $input, $args);
+        return PgnJS::renderPgnjs(self::$boards, $parser, $input, $args);
     }
 }
 
@@ -31,11 +38,12 @@ class PgnJS {
     private static $board_id = 0;
 
     // Render <pgn>
-    static public function renderPgnjs( $parser, $input, array $args ) {
+    static public function renderPgnjs( &$boards, $parser, $input, array $args ) {
         $style = isset($args[self::STYLE]) ? $args[self::STYLE] : "width: 240px";
         $id    = ++self::$board_id;
-        $script = "<script>window.PgnJSBoards = window.PgnJSBoards || {}; window.PgnJSBoards.b$id = \"$input\";</script>";
-        return "<div id=\"b$id\" style=\"$style\"></div>$script";
+
+        $boards["b$id"] = $input;
+        return "<div id=\"b$id\" style=\"$style\"></div>";
     }
 }
 
