@@ -3,7 +3,7 @@
     "author": "Michaël Peeters",
     "url": "http://www.mediawiki.org/wiki/Extension:PgnJS",
     "description": "Embed chess games (boards and moves) in wiki page",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license-name": "Apache-2.0",
     "type": "parserhook",
     "AutoloadClasses": {
