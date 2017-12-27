@@ -22,12 +22,17 @@ and resources is available when starting displaying the boards.
 In the original design, we would replace all ocurrences of the `<pgn>` tag with `<div>` and `<script>`
 tags. However this makes the synchronization more difficult.
 
-In our case, we can exploit the fact that all data is available in the wikitext, and that this data is
+My first idea was to exploit the fact that all data is available in the wikitext, and that this data is
 processed by the PHP extension. A simpler design is then to collect all the information in `<pgn>` tags
 (through the parser hook), and then produce a single javascript array that will contain the information
 for all `<pgn>` tags. In MW, this can be done via the
 [`OutputPage::addJsConfigVars`](https://www.mediawiki.org/wiki/Manual:OutputPage.php) API. When
 initialized, the data will be available in JS using the `mw.config` object.
+
+This idea however fails when MediaWiki uses cache (such as *memcached*). In that case, the parser hook
+is only called when the wiki text is changed. As a result, we must fall-back on the generation of
+inline `<script>` tags. These tags will save the board attributes as a javascript array (serialized from
+the PHP array using `json_encode()`), and save it in the global variable `window.PgnJSBoards`.
 
 To make sure that the page is completely loaded before consuming this variable, we use the following
 [construction](https://www.mediawiki.org/wiki/ResourceLoader/Developing_with_ResourceLoader#JavaScript)
