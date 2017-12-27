@@ -1,0 +1,55 @@
+== Sandbox for the PgnJS extension ==
+{| class=wikitable
+|- valign="top"
+|
+A board with piece style alpha
+<pgn pieceStyle="alpha">1. f4 e6 2. g4 Qh4</pgn>
+|
+A board with timer time 2000ms
+<pgn timerTime=2000>1. f4 e6 2. g4 Qh4</pgn>
+|
+A board with locale 'de'
+<pgn locale="de">1. f4 e6 2. g4 Qh4</pgn>
+|
+A board with board size 160px
+<pgn boardSize="160px">1. f4 e6 2. g4 Qh4</pgn>
+|
+|}
+{| class=wikitable
+|- valign="top"
+|
+A board with position:
+<pgn position="rnb1kbnr/pppp1ppp/4p3/8/5PPq/8/PPPPP2P/RNBQKBNR w KQkq - 1 3" />
+|
+A board with position and moves:
+<pgn position="rnbqkbnr/pppp1ppp/4p3/8/5P2/8/PPPPP1PP/RNBQKBNR w KQkq - 0 2">2. g4 Qh4</pgn>
+|
+A board with showNotation off
+<pgn showNotation="false">1. f4 e6 2. g4 Qh4</pgn>
+|
+A board with black orientation
+<pgn orientation="black">1. f4 e6 2. g4 Qh4</pgn>
+|
+A board with theme chesscom
+<pgn theme="chesscom">1. f4 e6 2. g4 Qh4</pgn>
+|}
+
+{| class=wikitable
+|- valign="top"
+|
+First a simple empty pgn tag:
+<pgn/>
+|
+A tag with a few moves:
+<pgn>1. f4 e6 2. g4 Qh4</pgn>
+|
+Another tag with some styling:
+<pgn style="width: 200px">1. f3 e6 2. g4 Qh4</pgn>
+|
+A print mode board:
+<pgn mode="print">1. f4 $220 e6 2. g4 Qh4 $221</pgn>
+|
+An edit mode board:
+<pgn mode="edit">1. f4 e6 2. g4 Qh4</pgn>
+|}
+
