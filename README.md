@@ -21,6 +21,7 @@ Tested on
   In print mode, use `$220` NAG to print the board (see example).
 * Support the following PgnViewerJS **attributes**:
   * `position` (also in combination with PGN moves).
+* Support CSS styling via standard attribute `style`.
 
 ## Installation
 
