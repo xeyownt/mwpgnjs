@@ -74,6 +74,11 @@ Code                  | Result
 `<pgn style="width: 200px">1. f3 e6 2. g4 Qh4</pgn>` | Some styling
 `<pgn mode="print">1. f3 $220 e6 2. g4 Qh4 $220</pgn>` | A board in print mode
 
+More examples in [file pgnjs.wiki](tests/pgnjs.wiki).
+
+## Contribute
+See [DEV.md](DEV.md) and [TODO.md](TODO.md).
+
 ## Links
 
 * [**PgnJS** extension on MediaWiki](https://www.mediawiki.org/wiki/Extension:PgnJS).
