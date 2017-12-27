@@ -51,6 +51,31 @@ Strictly speaking we don't need the javascript to produce the board, only to dea
 
 ## Tasks
 
+### Create a new release
+
+After adding a few features or fixing a few bugs, we create a new git tag and create a new release.
+By creating a new tag, GitHub will automatically add a new release in the [release tab](releases/).
+
+All tags follow the [Semantic Versioning](https://semver.org) standard.
+To create a new tag, we use the make targets (`make` will give you a list):
+* `make new-version-patch` to create a new PATCH version. Use this when the new release only fix bugs in a
+  backward-compatible way.
+* `make new-version-minor` to create a new MINOR version. Use this when the new release provides new
+  functionality in a backward-compatible way.
+* `make new-version-major` to create a new MAJOR version. Use this when the new release breaks
+  backward-comatibility
+
+These targets will only change local files (`VERSION`, `extension.json`...) but will not create any
+commit. To create a new git commit, use target `release`.
+
+So typically, to create a new PATCH release, and push to GitHub:
+
+```bash
+make new-version-patch
+make release
+git push origin master --tags
+```
+
 ### Sync with PgnViewerJS
 Currently we import only a subjet of the JS libraries that PgnViewJS distributes.
 
