@@ -21,7 +21,6 @@ if ( function_exists( 'wfLoadExtension' ) ) {
     return true;
 } else {
     $wgHooks['ParserFirstCallInit'][] = 'PgnJSHooks::onParserFirstCallInit';
-    $wgHooks['BeforePageDisplay'][] = 'PgnJSHooks::onBeforePageDisplay';
 
     $wgResourceModules['ext.PgnJS'] = array(
         'localBasePath' => __DIR__,

@@ -13,13 +13,6 @@
  */
 
 class PgnJSHooks {
-    private static $boards = array();
-
-    public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
-        $out->addJsConfigVars( 'pgnJSBoards', self::$boards );
-        return true;
-    }
-
     public static function onParserFirstCallInit( Parser &$parser ) {
         // Register parser handler for tag <pgn>
         $parser->setHook( 'pgn', 'PgnJSHooks::parserHook' );
@@ -29,7 +22,7 @@ class PgnJSHooks {
         // Tell ResourceLoader that we need our css module
         $parser->getOutput()->addModules( 'ext.PgnJS' );
 
-        return PgnJS::renderPgnjs(self::$boards, $parser, $input, $args);
+        return PgnJS::renderPgnjs($parser, $input, $args);
     }
 }
 
@@ -50,7 +43,7 @@ class PgnJS {
     private static $board_id = 0;
 
     // Render <pgn>
-    static public function renderPgnjs( &$boards, $parser, $input, array $args ) {
+    static public function renderPgnjs( $parser, $input, array $args ) {
         $style        = isset($args[self::STYLE]) ? $args[self::STYLE] : "width: 240px";
         $mode         = isset($args[self::MODE]) ? $args[self::MODE] : "view";
         $position     = isset($args[self::POSITION]) ? $args[self::POSITION] : null;
@@ -65,49 +58,53 @@ class PgnJS {
         $movesHeight  = isset($args[self::MOVES_HEIGHT]) ? $args[self::MOVES_HEIGHT] : null;
         $scrollable   = isset($args[self::SCROLLABLE]) ? $args[self::SCROLLABLE] : null;
 
-        $id = "pgnjs-b".(++self::$board_id);
+        $board = array();
+        $id = "pgnjsb".(++self::$board_id);
 
         if( $input ) {
-            $boards[$id]['pgn'] = $input;
+            $board['pgn'] = $input;
         } else {
             $mode = 'board';             // No pgn defaults to board mode
         }
-        $boards[$id]['mode'] = $mode;
+        $board['mode'] = $mode;
         if( $position ) {
-            $boards[$id]['position'] = $position;
+            $board['position'] = $position;
         }
         if( $showNotation ) {
-            $boards[$id]['showNotation'] = ($showNotation === 'true');
+            $board['showNotation'] = ($showNotation === 'true');
         }
         if( $orientation ) {
-            $boards[$id]['orientation'] = $orientation;
+            $board['orientation'] = $orientation;
         }
         if( $theme ) {
-            $boards[$id]['theme'] = $theme;
+            $board['theme'] = $theme;
         }
         if( $pieceStyle ) {
-            $boards[$id]['pieceStyle'] = $pieceStyle;
+            $board['pieceStyle'] = $pieceStyle;
         }
         if( $timerTime ) {
-            $boards[$id]['timerTime'] = $timerTime;
+            $board['timerTime'] = $timerTime;
         }
         if( $locale ) {
-            $boards[$id]['locale'] = $locale;
+            $board['locale'] = $locale;
         }
         if( $boardSize ) {
-            $boards[$id]['boardSize'] = $boardSize;
+            $board['boardSize'] = $boardSize;
         }
         if( $movesWidth ) {
-            $boards[$id]['movesWidth'] = $movesWidth;
+            $board['movesWidth'] = $movesWidth;
         }
         if( $movesHeight ) {
-            $boards[$id]['movesHeight'] = $movesHeight;
+            $board['movesHeight'] = $movesHeight;
         }
         if( $scrollable ) {
-            $boards[$id]['scrollable'] = ($scrollable === 'true');
+            $board['scrollable'] = ($scrollable === 'true');
         }
 
-        return "<div id=\"$id\" style=\"$style\"></div>";
+        $jsBoard = json_encode($board);
+        $script = "<script>window.PgnJSBoards = window.PgnJSBoards || {}; window.PgnJSBoards.$id = $jsBoard;</script>";
+
+        return "<div id=\"$id\" style=\"$style\"></div>$script";
     }
 }
 

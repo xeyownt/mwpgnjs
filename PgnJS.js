@@ -8,23 +8,23 @@ i18n = $.i18n;
 
 $( function () {
     // This code must not be executed before the document is loaded.
-    var pgnJSBoards = mw.config.get("pgnJSBoards");
-    for (var id in pgnJSBoards) { 
-        // console.log( 'Found a board ' + id + ' in window: ' + pgnJSBoards[id]);
-        var mode = pgnJSBoards[id].mode;
-        delete pgnJSBoards[id].mode; // See PgnViewerJS doc: Don't try to set that on your own!
+    // console.log( 'Start parsing ' + typeof window.PgnJSBoards);
+    for (var id in window.PgnJSBoards) { 
+        // console.log( 'Found a board ' + id + ' in window: ' + window.PgnJSBoards[id]);
+        var mode = window.PgnJSBoards[id].mode;
+        delete window.PgnJSBoards[id].mode; // See PgnViewerJS doc: Don't try to set that on your own!
         switch(mode) {
             case "board":
-                pgnJSBoards[id] = pgnBoard(id, pgnJSBoards[id]);
+                window.PgnJSBoards[id] = pgnBoard(id, window.PgnJSBoards[id]);
                 break;
             case "view":
-                pgnJSBoards[id] = pgnView(id, pgnJSBoards[id]);
+                window.PgnJSBoards[id] = pgnView(id, window.PgnJSBoards[id]);
                 break;
             case "edit":
-                pgnJSBoards[id] = pgnEdit(id, pgnJSBoards[id]);
+                window.PgnJSBoards[id] = pgnEdit(id, window.PgnJSBoards[id]);
                 break;
             case "print":
-                pgnJSBoards[id] = pgnPrint(id, pgnJSBoards[id]);
+                window.PgnJSBoards[id] = pgnPrint(id, window.PgnJSBoards[id]);
                 break;
             default:
                 console.warn("Unknown mode " + mode);
