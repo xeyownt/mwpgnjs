@@ -17,8 +17,10 @@ Tested on
 
 ## Features
 
-* Support the 4 PgnViewerJS modes: `board`, `view` (default), `print` and `edit`.
+* Support the 4 PgnViewerJS **modes**: `board`, `view` (default), `print` and `edit`.
   In print mode, use `$220` NAG to print the board (see example).
+* Support the following PgnViewerJS **attributes**:
+  * `position` (also in combination with PGN moves).
 
 ## Installation
 
