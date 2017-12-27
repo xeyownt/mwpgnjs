@@ -15,6 +15,10 @@ Tested on
 * Mediawiki 1.27.4.
 * Mediawiki 1.22.1.
 
+## Features
+
+* Support the 4 PgnViewerJS modes: `board`, `view` (default), `print` and `edit`.
+
 ## Installation
 
 The simplest is to clone the git repository in folder `extensions` of your wiki and run the `install`
@@ -53,7 +57,9 @@ Code                  | Result
 ----------------------|-----------
 `<pgn/>` | An empty board
 `<pgn>1. f4 e6 2. g4 Qh4</pgn>` | A board with moves
-`<pgn style="width: 320px">1. f3 e6 2. g4 Qh4</pgn>` | Same but with some styling
+`<pgn>1. f4 e6 2. g4 Qh4 {Oups!}</pgn>` | PGN may include annotation (or variants)
+`<pgn style="width: 200px">1. f3 e6 2. g4 Qh4</pgn>` | Some styling
+`<pgn mode="print">1. f3 $220 e6 2. g4 Qh4 $220</pgn>` | A board in print mode
 
 ## Links
 

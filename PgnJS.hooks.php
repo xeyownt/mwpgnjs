@@ -35,15 +35,23 @@ class PgnJSHooks {
 
 class PgnJS {
     const STYLE  = "style";
+    const MODE   = "mode";
     private static $board_id = 0;
 
     // Render <pgn>
     static public function renderPgnjs( &$boards, $parser, $input, array $args ) {
         $style = isset($args[self::STYLE]) ? $args[self::STYLE] : "width: 240px";
-        $id    = ++self::$board_id;
+        $mode = isset($args[self::MODE]) ? $args[self::MODE] : "view";
+        $id = "pgnjs-b".(++self::$board_id);
 
-        $boards["b$id"] = $input;
-        return "<div id=\"b$id\" style=\"$style\"></div>";
+        if( $input ) {
+            // No pgn defaults to view mode
+            $boards[$id]['pgn'] = $input;
+            $boards[$id]['mode'] = $mode;
+        } else {
+            $boards[$id]['mode'] = 'board';
+        }
+        return "<div id=\"$id\" style=\"$style\"></div>";
     }
 }
 

@@ -1,5 +1,9 @@
 # PgnJS TODO
 
+## Features
+
+* [X] Support the 4 modes: board, view, edit and print.
+
 ## Dev
 
 * [ ] Import back CSS delivered with FontAwesome / PgnViewerJS.
