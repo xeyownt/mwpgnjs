@@ -44,6 +44,9 @@ class PgnJS {
     const TIMER_TIME     = "timertime";     // Must be lower case or test fail!
     const LOCALE         = "locale";
     const BOARD_SIZE     = "boardsize";     // Must be lower case or test fail!
+    const MOVES_WIDTH    = "moveswidth";    // Must be lower case or test fail!
+    const MOVES_HEIGHT   = "movesheight";   // Must be lower case or test fail!
+    const SCROLLABLE     = "scrollable";
     private static $board_id = 0;
 
     // Render <pgn>
@@ -58,6 +61,9 @@ class PgnJS {
         $timerTime    = isset($args[self::TIMER_TIME]) ? $args[self::TIMER_TIME] : null;
         $locale       = isset($args[self::LOCALE]) ? $args[self::LOCALE] : null;
         $boardSize    = isset($args[self::BOARD_SIZE]) ? $args[self::BOARD_SIZE] : null;
+        $movesWidth   = isset($args[self::MOVES_WIDTH]) ? $args[self::MOVES_WIDTH] : null;
+        $movesHeight  = isset($args[self::MOVES_HEIGHT]) ? $args[self::MOVES_HEIGHT] : null;
+        $scrollable   = isset($args[self::SCROLLABLE]) ? $args[self::SCROLLABLE] : null;
 
         $id = "pgnjs-b".(++self::$board_id);
 
@@ -90,6 +96,15 @@ class PgnJS {
         }
         if( $boardSize ) {
             $boards[$id]['boardSize'] = $boardSize;
+        }
+        if( $movesWidth ) {
+            $boards[$id]['movesWidth'] = $movesWidth;
+        }
+        if( $movesHeight ) {
+            $boards[$id]['movesHeight'] = $movesHeight;
+        }
+        if( $scrollable ) {
+            $boards[$id]['scrollable'] = ($scrollable === 'true');
         }
 
         return "<div id=\"$id\" style=\"$style\"></div>";

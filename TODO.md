@@ -12,6 +12,11 @@
 * [X] Support attribute `timerTime`.
 * [X] Support attribute `locale`.
 * [X] Support attribute `boardSize`.
+* [ ] Support non-documented attributes. These are for instance the attributes we see in the theme
+  examples, like `movesWidth`, `scrollable`, `movesHeight`. List of supported attributes:
+  * [X] `movesWidth`
+  * [X] `movesHeight`
+  * [X] `scrollable`
 
 ## Wanted PgnViewerJS features
 

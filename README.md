@@ -27,7 +27,8 @@ Tested on
   * `pieceStyle` (note that default is `merida`),
   * `timerTime`,
   * `locale`,
-  * `boardSize`.
+  * `boardSize`,
+  * `movesWidth`, `movesHeight`, and `scrollable`.
 * Support CSS styling via standard attribute `style`. This is handy for specifying the DIV width (e.g.
   `style="width: 200px"`).
 
