@@ -34,16 +34,31 @@ class PgnJSHooks {
 }
 
 class PgnJS {
-    const STYLE      = "style";
-    const MODE       = "mode";
-    const POSITION   = "position";
+    const STYLE          = "style";
+    const MODE           = "mode";
+    const POSITION       = "position";
+    const SHOW_NOTATION  = "shownotation";  // Must be lower case or test fail!
+    const ORIENTATION    = "orientation";
+    const THEME          = "theme";
+    const PIECE_STYLE    = "piecestyle";    // Must be lower case or test fail!
+    const TIMER_TIME     = "timertime";     // Must be lower case or test fail!
+    const LOCALE         = "locale";
+    const BOARD_SIZE     = "boardsize";     // Must be lower case or test fail!
     private static $board_id = 0;
 
     // Render <pgn>
     static public function renderPgnjs( &$boards, $parser, $input, array $args ) {
-        $style    = isset($args[self::STYLE]) ? $args[self::STYLE] : "width: 240px";
-        $mode     = isset($args[self::MODE]) ? $args[self::MODE] : "view";
-        $position = isset($args[self::POSITION]) ? $args[self::POSITION] : "start";
+        $style        = isset($args[self::STYLE]) ? $args[self::STYLE] : "width: 240px";
+        $mode         = isset($args[self::MODE]) ? $args[self::MODE] : "view";
+        $position     = isset($args[self::POSITION]) ? $args[self::POSITION] : null;
+        $showNotation = isset($args[self::SHOW_NOTATION]) ? $args[self::SHOW_NOTATION] : null;
+        $orientation  = isset($args[self::ORIENTATION]) ? $args[self::ORIENTATION] : null;
+        $theme        = isset($args[self::THEME]) ? $args[self::THEME] : null;
+        $pieceStyle   = isset($args[self::PIECE_STYLE]) ? $args[self::PIECE_STYLE] : "merida";
+        $timerTime    = isset($args[self::TIMER_TIME]) ? $args[self::TIMER_TIME] : null;
+        $locale       = isset($args[self::LOCALE]) ? $args[self::LOCALE] : null;
+        $boardSize    = isset($args[self::BOARD_SIZE]) ? $args[self::BOARD_SIZE] : null;
+
         $id = "pgnjs-b".(++self::$board_id);
 
         if( $input ) {
@@ -52,7 +67,31 @@ class PgnJS {
             $mode = 'board';             // No pgn defaults to board mode
         }
         $boards[$id]['mode'] = $mode;
-        $boards[$id]['position'] = $position;
+        if( $position ) {
+            $boards[$id]['position'] = $position;
+        }
+        if( $showNotation ) {
+            $boards[$id]['showNotation'] = ($showNotation === 'true');
+        }
+        if( $orientation ) {
+            $boards[$id]['orientation'] = $orientation;
+        }
+        if( $theme ) {
+            $boards[$id]['theme'] = $theme;
+        }
+        if( $pieceStyle ) {
+            $boards[$id]['pieceStyle'] = $pieceStyle;
+        }
+        if( $timerTime ) {
+            $boards[$id]['timerTime'] = $timerTime;
+        }
+        if( $locale ) {
+            $boards[$id]['locale'] = $locale;
+        }
+        if( $boardSize ) {
+            $boards[$id]['boardSize'] = $boardSize;
+        }
+
         return "<div id=\"$id\" style=\"$style\"></div>";
     }
 }

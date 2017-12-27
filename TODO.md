@@ -5,13 +5,13 @@
 * [X] Support the 4 modes: board, view, edit and print.
 * [X] Support attribute `position` (in combination with PGN moves).
 * [ ] Support attribute `pgnFile`. But where would that file come from?
-* [ ] Support attribute `showNotation`.
-* [ ] Support attribute `orientation`.
-* [ ] Support attribute `theme`.
-* [ ] Support attribute `pieceStyle`.
-* [ ] Support attribute `timerTime`.
-* [ ] Support attribute `locale`.
-* [ ] Support attribute `boardSize`.
+* [X] Support attribute `showNotation`.
+* [X] Support attribute `orientation`.
+* [X] Support attribute `theme`.
+* [X] Support attribute `pieceStyle` (but default set to `merida`).
+* [X] Support attribute `timerTime`.
+* [X] Support attribute `locale`.
+* [X] Support attribute `boardSize`.
 
 ## Wanted PgnViewerJS features
 
@@ -33,6 +33,7 @@ Some of these features might already be listed in PgnViewerJS plans.
 
 * [ ] Import back CSS delivered with FontAwesome / PgnViewerJS.
 * [ ] Sanitize PGN text in <pgn> tag. What if it contains double-quotes `"`?
+* [ ] Sanitize <pgn> tag attributes?
 
 ## MediaWiki
 

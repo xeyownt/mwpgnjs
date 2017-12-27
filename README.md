@@ -20,8 +20,16 @@ Tested on
 * Support the 4 PgnViewerJS **modes**: `board`, `view` (default), `print` and `edit`.
   In print mode, use `$220` NAG to print the board (see example).
 * Support the following PgnViewerJS **attributes**:
-  * `position` (also in combination with PGN moves).
-* Support CSS styling via standard attribute `style`.
+  * `position` (also in combination with PGN moves),
+  * `showNotation`,
+  * `orientation`,
+  * `theme`,
+  * `pieceStyle` (note that default is `merida`),
+  * `timerTime`,
+  * `locale`,
+  * `boardSize`.
+* Support CSS styling via standard attribute `style`. This is handy for specifying the DIV width (e.g.
+  `style="width: 200px"`).
 
 ## Installation
 
