@@ -1,4 +1,10 @@
-== Sandbox for the PgnJS extension ==
+'''[http://www.mediawiki.org/wiki/Extension:PgnJS PgnJS]''' is an extension that displays chess games (boards and moves) given in PGN format in <code><nowiki><pgn></nowiki></code> tags.
+
+* [https://github.com/xeyownt/mwpgnjs PgnJS on GitHub].
+* [http://www.mediawiki.org/wiki/Extension:PgnJS PgnJS extension page] on mediawiki.org.
+
+== Examples ==
+
 {| class=wikitable
 |- valign="top"
 |
@@ -13,10 +19,8 @@ A board with locale 'de'
 |
 A board with board size 160px
 <pgn boardSize="160px">1. f4 e6 2. g4 Qh4</pgn>
-|
-A board with moves width, height and scrollable
-<pgn style="width: 390px" theme="chesscom" boardSize="200px" movesWidth="180px" movesHeight="220px" scrollable="true">[White "Anderssen, Adolf"][Black "Dufresne, Jean"] 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O d3 8. Qb3 Qf6 9. e5 Qg6 10. Re1 Nge7 11. Ba3 b5 12. Qxb5 Rb8 13. Qa4 Bb6 14. Nbd2 Bb7 15. Ne4 Qf5 16. Bxd3 Qh5 17. Nf6+ gxf6 18. exf6 Rg8 19. Rad1 Qxf3 20. Rxe7+ Nxe7 21. Qxd7+ Kxd7 22. Bf5+ Ke8 23. Bd7+ Kf8 24. Bxe7# 1:0</pgn>
 |}
+
 {| class=wikitable
 |- valign="top"
 |
@@ -33,7 +37,7 @@ A board with black orientation
 <pgn orientation="black">1. f4 e6 2. g4 Qh4</pgn>
 |
 A board with theme chesscom
-<pgn theme="chesscom">1. f4 e6 2. g4 Qh4</pgn>
+<pgn theme="chesscom" boardsize="240px">1. f4 e6 2. g4 Qh4</pgn>
 |}
 
 {| class=wikitable
@@ -49,9 +53,17 @@ Another tag with some styling:
 <pgn style="width: 200px">1. f3 e6 2. g4 Qh4</pgn>
 |
 A print mode board:
-<pgn mode="print">1. f4 $220 e6 2. g4 Qh4 $221</pgn>
+<pgn mode="print">1. f4 $220 e6 2. g4 Qh4 $220</pgn>
 |
 An edit mode board:
 <pgn mode="edit">1. f4 e6 2. g4 Qh4</pgn>
+|}
+
+== Experimental features ==
+{| class=wikitable
+|- valign="top"
+|
+A board with moves width, height and scrollable
+<pgn style="width: 390px" theme="chesscom" boardSize="200px" movesWidth="180px" movesHeight="220px" scrollable="true">[White "Anderssen, Adolf"][Black "Dufresne, Jean"] 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O d3 8. Qb3 Qf6 9. e5 Qg6 10. Re1 Nge7 11. Ba3 b5 12. Qxb5 Rb8 13. Qa4 Bb6 14. Nbd2 Bb7 15. Ne4 Qf5 16. Bxd3 Qh5 17. Nf6+ gxf6 18. exf6 Rg8 19. Rad1 Qxf3 20. Rxe7+ Nxe7 21. Qxd7+ Kxd7 22. Bf5+ Ke8 23. Bd7+ Kf8 24. Bxe7# 1:0</pgn>
 |}
 
