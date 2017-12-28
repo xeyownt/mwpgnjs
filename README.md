@@ -12,22 +12,23 @@ extension by yourself.
 
 ## Status
 
-Currently this extension is in *experimental* status, ie. it is still in heavy development, and some
-things may change drastically (see feature categories below). It basically works for me on my wiki.
-
+Currently this extension is in *beta* status, ie. it is stable but not fully tested.
 The extension is regularly tested on
 * Mediawiki 1.27.4.
 * Mediawiki 1.22.1.
 
-Features:
+The extension contains many features, and future releases will likely add more. Some features might
+change in the future. The stability of each feature is detailed in the next section.
+
+## Features
+
+We classify the features in one of these three categories:
 * *Stable* features will not change in future releases of the extension.
 * *Experimental* features are subject to change in future releases.
 * *Broken* features are features that are... broken. They indicate work-in-progress and may either
   be fixed, disappear or remain broken in future releases.
 
-## Features
-
-**Stable** features:
+The **Stable** features are:
 * Support the 4 PgnViewerJS **modes**: `board`, `view` (default), `print` and `edit`.
   In print mode, use `$220` NAG to print the board (see example).
 * Support the following PgnViewerJS **attributes**:
@@ -39,15 +40,15 @@ Features:
   * `timerTime`,
   * `locale`,
   * `boardSize`.
-* Support CSS styling via standard attribute `style`. This is handy for specifying the DIV width (e.g.
-  `style="width: 200px"`).
+* Support **CSS styling** via standard attribute `style`. This is handy for specifying the DIV width
+  (e.g.  `style="width: 200px"`).
 
-**Experimental** features:
-* **Attribute** `goto` to specify which move to display when board is created. For now only `goto="last"` is
-  supported. This feature will remain available, but the keyword might change and it will be possible to
-  select any move in the given PGN (pending a PgnViewerJS feature request).
+The **Experimental** features are:
+* **Attribute** `goto` to specify which move to display when board is created. For now only `goto="last"`
+  is supported. This feature will remain available, but the keyword might change and it will be possible
+  to select any move in the given PGN (pending a PgnViewerJS feature request).
 
-**Broken** features:
+The **Broken** features are:
 * Support the following PgnViewerJS **attributes**:
   * `movesWidth`, `movesHeight`, and `scrollable`.
 
