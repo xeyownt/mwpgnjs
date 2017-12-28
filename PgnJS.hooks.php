@@ -40,6 +40,7 @@ class PgnJS {
     const MOVES_WIDTH    = "moveswidth";    // Must be lower case or test fail!
     const MOVES_HEIGHT   = "movesheight";   // Must be lower case or test fail!
     const SCROLLABLE     = "scrollable";
+    const GO_TO          = "goto";          // Should be GOTO but reserved word
     private static $board_id = 0;
 
     // Render <pgn>
@@ -57,6 +58,7 @@ class PgnJS {
         $movesWidth   = isset($args[self::MOVES_WIDTH]) ? $args[self::MOVES_WIDTH] : null;
         $movesHeight  = isset($args[self::MOVES_HEIGHT]) ? $args[self::MOVES_HEIGHT] : null;
         $scrollable   = isset($args[self::SCROLLABLE]) ? $args[self::SCROLLABLE] : null;
+        $goto         = isset($args[self::GO_TO]) ? $args[self::GO_TO] : null;
 
         $board = array();
         $id = "pgnjsb".(++self::$board_id);
@@ -99,6 +101,9 @@ class PgnJS {
         }
         if( $scrollable ) {
             $board['scrollable'] = ($scrollable === 'true');
+        }
+        if( $goto && ($goto === 'last') ) {
+            $board['goto'] = $goto;
         }
 
         $jsBoard = json_encode($board);

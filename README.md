@@ -1,9 +1,9 @@
 # PgnJS
 
-PgnJS is a MediaWiki extension that embeds chess games (boards and moves) in a wiki page. Chess games are
-simply given in PGN format in a `<pgn>` tag and displayed thanks to the powerful javascript engine
-[**PgnViewerJS**](https://github.com/mliebelt/PgnViewerJS). In fact most of the functionality is provided
-by PgnViewerJS. This extension only implements the parsing of the `<pgn>` tag.
+PgnJS is a MediaWiki extension that displays chess games (boards and moves) interactively. Chess
+games are simply given in PGN format in a `<pgn>` tag and displayed thanks to the powerful javascript
+engine [**PgnViewerJS**](https://github.com/mliebelt/PgnViewerJS). In fact most of the functionality is
+provided by PgnViewerJS. This extension only implements the parsing of the `<pgn>` tag.
 
 Visit [PgnJS test page on WikiTest](https://wikitest.immie.org/wiki/PgnJS) for examples and trying the
 extension by yourself.
@@ -12,15 +12,22 @@ extension by yourself.
 
 ## Status
 
-Currently this extension is in *experimental* status (still in development, things may change
-drastically). It works for me on my wiki.
+Currently this extension is in *experimental* status, ie. it is still in heavy development, and some
+things may change drastically (see feature categories below). It basically works for me on my wiki.
 
-Tested on
+The extension is regularly tested on
 * Mediawiki 1.27.4.
 * Mediawiki 1.22.1.
 
+Features:
+* *Stable* features will not change in future releases of the extension.
+* *Experimental* features are subject to change in future releases.
+* *Broken* features are features that are... broken. They indicate work-in-progress and may either
+  be fixed, disappear or remain broken in future releases.
+
 ## Features
 
+**Stable** features:
 * Support the 4 PgnViewerJS **modes**: `board`, `view` (default), `print` and `edit`.
   In print mode, use `$220` NAG to print the board (see example).
 * Support the following PgnViewerJS **attributes**:
@@ -31,10 +38,18 @@ Tested on
   * `pieceStyle` (note that default is `merida`),
   * `timerTime`,
   * `locale`,
-  * `boardSize`,
-  * `movesWidth`, `movesHeight`, and `scrollable`.
+  * `boardSize`.
 * Support CSS styling via standard attribute `style`. This is handy for specifying the DIV width (e.g.
   `style="width: 200px"`).
+
+**Experimental** features:
+* **Attribute** `goto` to specify which move to display when board is created. For now only `goto="last"` is
+  supported. This feature will remain available, but the keyword might change and it will be possible to
+  select any move in the given PGN (pending a PgnViewerJS feature request).
+
+**Broken** features:
+* Support the following PgnViewerJS **attributes**:
+  * `movesWidth`, `movesHeight`, and `scrollable`.
 
 ## Installation
 
@@ -63,10 +78,8 @@ Done! Navigate to `Special:Version` on your wiki to verify that the extension is
 
 ## Usage
 
-The extension provides a new tag `<pgn>`.
-
-To embed a new chess game on your page, simply enclose the PGN representation of that game in a `<pgn>`
-tag.
+The extension provides a new tag `<pgn>`.  To embed a new chess game on your page, simply enclose the PGN
+representation of that game in a `<pgn>` tag.
 
 Some examples:
 

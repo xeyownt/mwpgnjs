@@ -36,6 +36,20 @@ Some of these features might already be listed in PgnViewerJS plans.
   without the need to click on buttons. The user may then use the buttons to play back and forth the
   opening moves.
 
+### Start at a user-given move
+In inspector, the event attached to last button is:
+```
+function() {
+  var fen = that.mypgn.getMove(that.mypgn.getMoves().length - 1).fen;
+  makeMove(that.currentMove, that.mypgn.getMoves().length - 1, fen);
+}
+```
+By using the inspector, we see that the last move button is named something like `pgnjsb1Buttonlast`. We
+can simulate a click with
+```javascript
+$('#' + id + 'Buttonlast').trigger('click');
+```
+
 ## Dev
 
 * [ ] Import back CSS delivered with FontAwesome / PgnViewerJS.
