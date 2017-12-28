@@ -78,7 +78,8 @@ Code                  | Result
 `<pgn style="width: 200px">1. f3 e6 2. g4 Qh4</pgn>` | Some styling
 `<pgn mode="print">1. f3 $220 e6 2. g4 Qh4 $220</pgn>` | A board in print mode
 
-More examples on the [PgnJS test page](https://wikitest.immie.org/wiki/PgnJS).
+More examples on the [PgnJS test page](https://wikitest.immie.org/wiki/PgnJS) or in the [tests](tests/)
+folder.
 
 ## Contribute
 See [DEV.md](DEV.md) and [TODO.md](TODO.md).

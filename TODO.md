@@ -17,6 +17,8 @@
   * [X] `movesWidth`
   * [X] `movesHeight`
   * [X] `scrollable`
+* [ ] Support different layouts (through 
+[Allow different markup](http://mliebelt.github.io/PgnViewerJS/docu/examples.html#1217)).
 
 ## Wanted PgnViewerJS features
 
