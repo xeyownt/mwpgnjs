@@ -1,0 +1,35 @@
+== GitHub Screenshots ==
+Next sections are for the screenshots on GitHub.
+
+
+== Opening Traps ==
+{| class=wikitable
+|- valign=top
+|
+<pgn goto=last>{Fool's mate} 1. f3 e5 2. g4 {Frontal attack is too dangerous} Qh4 {Oups!}</pgn>
+|
+<pgn goto=last theme=chesscom style="width: 240px" boardsize=240px pieceStyle=alpha>{Scholar's mate} 1. e4 e5 2. Bc4 Nc6 3. Qh5 {Ahaah! White moves their queen...} Nf6?? {...let's attack it!} 4. Qxf7 {Oups!}</pgn>
+|
+<pgn mode=print style="width: 360px" boardsize=240px pieceStyle=wikipedia>1. d4 f5 2. Bg5 h6 3. Bf4 g5 4. Bg3 f4 {It seems that Black has won the bishop, but now comes...} 5. e3 {Threatening Qh5#, a basic Fool's Mate.} 5... h5 6. Bd3?! {Probably better is 6.Be2, but the move played sets a trap.} Rh6?? $220 {Defending against Bg6#, but...} 7. Qxh5+! {White sacrifices his queen to draw the black rook away from its control of g6.} Rxh5 8. Bg6</pgn>
+|}
+
+== Tips ==
+* Study chess openings!
+
+
+
+== Mediawiki Extension Screenshots ==
+The next sections are for the screenshots on MediaWiki extension page.
+
+
+== Opening Traps ==
+{| class=wikitable
+|-
+!Name
+!Board
+|- valign=top
+|[[wikipedia:Fool's mate|Fool's mate]]
+|
+<pgn goto=last pieceStyle=wikipedia>1. f3 e5 2. g4 {Frontal attack is too dangerous} Qh4 {Oups!}</pgn>
+|}
+
