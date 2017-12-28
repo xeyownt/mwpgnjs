@@ -2,6 +2,8 @@
 
 ## Features
 
+### PgnViewerJS features
+PgnViewerJS features that we implement:
 * [X] Support the 4 modes: board, view, edit and print.
 * [X] Support attribute `position` (in combination with PGN moves).
 * [ ] Support attribute `pgnFile`. But where would that file come from?
@@ -20,6 +22,10 @@
 * [ ] Support different layouts (through 
 [Allow different markup](http://mliebelt.github.io/PgnViewerJS/docu/examples.html#1217)).
 
+### New features
+* [X] Attribute `goto` (to show board at a given position in view and edit mode).
+* [ ] Align with PgnViewerJS issue on attribute `goto` (mliebelt/PgnViewerJS#75).
+
 ## Wanted PgnViewerJS features
 
 Some of these features might already be listed in PgnViewerJS plans.
@@ -35,8 +41,13 @@ Some of these features might already be listed in PgnViewerJS plans.
   would useful for instance when listing various openings. We should the PGN and resulting position
   without the need to click on buttons. The user may then use the buttons to play back and forth the
   opening moves.
+* [ ] The ability to display the same board several times, at several different move. For instance, see
+  the wikipedia page on [Fool's mate](https://en.wikipedia.org/wiki/Fool%27s_mate). A typical use case in
+  wiki, is to give a lot of details about a game development, and show side snapshots of that game
+  (usually with a given legend). That feature is similar to the `print` mode, but mixed with the ability
+  to have a custom layout.
 
-### Start at a user-given move
+### Start at a user-given move (attribute `goto`)
 In inspector, the event attached to last button is:
 ```
 function() {
