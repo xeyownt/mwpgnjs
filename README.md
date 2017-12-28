@@ -5,11 +5,15 @@ simply given in PGN format in a `<pgn>` tag and displayed thanks to the powerful
 [**PgnViewerJS**](https://github.com/mliebelt/PgnViewerJS). In fact most of the functionality is provided
 by PgnViewerJS. This extension only implements the parsing of the `<pgn>` tag.
 
+Visit [PgnJS test page on WikiTest](https://wikitest.immie.org/wiki/PgnJS) for examples and trying the
+extension by yourself.
+
 <p align="center"><img src="img/screenshot.png"></p>
 
 ## Status
 
-Currently this extension is in *alpha* status (still in development). It works for me on my wiki.
+Currently this extension is in *experimental* status (still in development, things may change
+drastically). It works for me on my wiki.
 
 Tested on
 * Mediawiki 1.27.4.
@@ -74,7 +78,7 @@ Code                  | Result
 `<pgn style="width: 200px">1. f3 e6 2. g4 Qh4</pgn>` | Some styling
 `<pgn mode="print">1. f3 $220 e6 2. g4 Qh4 $220</pgn>` | A board in print mode
 
-More examples in [file pgnjs.wiki](tests/pgnjs.wiki).
+More examples on the [PgnJS test page](https://wikitest.immie.org/wiki/PgnJS).
 
 ## Contribute
 See [DEV.md](DEV.md) and [TODO.md](TODO.md).
@@ -82,6 +86,7 @@ See [DEV.md](DEV.md) and [TODO.md](TODO.md).
 ## Links
 
 * [**PgnJS** extension on MediaWiki](https://www.mediawiki.org/wiki/Extension:PgnJS).
+* [**Try PgnJS** on WikiTest test page](https://wikitest.immie.org/wiki/PgnJS).
 * [**PgnViewerJS** on GitHub](https://github.com/mliebelt/PgnViewerJS).
 
 
