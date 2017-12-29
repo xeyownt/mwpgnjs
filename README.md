@@ -29,9 +29,9 @@ We classify the features in one of these three categories:
   be fixed, disappear or remain broken in future releases.
 
 The **Stable** features are:
-* Support the 4 PgnViewerJS **modes**: `board`, `view` (default), `print` and `edit`.
+* The 4 PgnViewerJS **modes**: `board`, `view` (default), `print` and `edit`.
   In print mode, use `$220` NAG to print the board (see example).
-* Support the following PgnViewerJS **attributes**:
+* The following PgnViewerJS **attributes**:
   * `position` (also in combination with PGN moves),
   * `showNotation`,
   * `orientation`,
@@ -39,8 +39,12 @@ The **Stable** features are:
   * `pieceStyle` (note that default is `merida`),
   * `timerTime`,
   * `locale`,
-  * `boardSize`.
-* Support **CSS styling** via standard attribute `style`. This is handy for specifying the DIV width
+  * `boardSize`,
+  * `layout`,
+  * `movesWidth`,
+  * `movesHeight`, and
+  * `scrollable`.
+* **CSS styling** via standard attribute `style`. This is handy for specifying the DIV width
   (e.g.  `style="width: 200px"`).
 
 The **Experimental** features are:
@@ -49,8 +53,7 @@ The **Experimental** features are:
   to select any move in the given PGN (pending a PgnViewerJS feature request).
 
 The **Broken** features are:
-* Support the following PgnViewerJS **attributes**:
-  * `movesWidth`, `movesHeight`, and `scrollable`.
+* None known.
 
 ## Installation
 
