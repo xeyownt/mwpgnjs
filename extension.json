@@ -21,7 +21,6 @@
                 "PgnJS.css"
             ],
             "scripts": [
-                "PgnViewerJS/js/jquery-ui.js",
                 "PgnViewerJS/chess.js/chess.js",
                 "PgnViewerJS/chessboardjs/js/chessboard.js",
                 "PgnViewerJS/chessboardjs/js/json3.min.js",
@@ -34,7 +33,8 @@
                 "PgnViewerJS/js/i18next-1.11.2.js",
                 "PgnJS.js"
             ],
-            "position": "top"
+            "position": "top",
+            "dependencies": [ "jquery.ui.core", "jquery.ui.widget" ]
         }
     },
     "ResourceFileModulePaths": {
