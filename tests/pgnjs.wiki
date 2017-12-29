@@ -19,14 +19,14 @@ gives the following result
 
 Of course, the PGN may contain annotation and even game variation. The PGNViewerJS engine is really powerful and gives nice unbloated results:
 <pre>
-<pgn style="width:100%" boardsize=300px>1. e4 e5 {The following are several possible variations for the king-side opening. } 
+<pgn style="width:100%" boardsize=300px layout=right>1. e4 e5 {The following are several possible variations for the king-side opening. } 
 ( 1... c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 
 ( 5... e5 6. Ndb5 a6 7. Na3 b5 8. Nd5 Nxe4 { This is a wild variation } ) 6. Be3 e6 ) 
 2. Nf3 ( 2. f4 exf4 3. Nf3 g5 ( 3... Nf6 4. e5 Nh5 ) ( 3... Be7 4. Bc4 Bh4+ 5. Kf1 ) 4. h4 ) Nc6 3. Bb5 a6 4. Ba4
 </pgn>
 </pre>
 
-<pgn style="width:100%" boardsize=300px>1. e4 e5 {The following are several possible variations for the king-side opening. } 
+<pgn style="width:100%" boardsize=300px layout=right>1. e4 e5 {The following are several possible variations for the king-side opening. } 
 ( 1... c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 
 ( 5... e5 6. Ndb5 a6 7. Na3 b5 8. Nd5 Nxe4 { This is a wild variation } ) 6. Be3 e6 ) 
 2. Nf3 ( 2. f4 exf4 3. Nf3 g5 ( 3... Nf6 4. e5 Nh5 ) ( 3... Be7 4. Bc4 Bh4+ 5. Kf1 ) 4. h4 ) Nc6 3. Bb5 a6 4. Ba4
@@ -151,6 +151,11 @@ Attribute <code>locale</code> (for now, only <code>en</code> and <code>de</code>
 |
 Attribute <code>boardSize</code>:
 <pgn boardSize="160px">1. f4 e6 2. g4 Qh4</pgn>
+|colspan=2|
+Attributes <code>layout</code>, <code>movesWidth</code>, <code>movesHeight</code> and <code>scrollable</code>
+
+Taken from [http://mliebelt.github.io/PgnViewerJS/docu/examples.html#1050 PgnViewerJS theme examples] page.
+<pgn style="width: 390px" theme="chesscom" layout="left" boardSize="200px" movesWidth="180px" movesHeight="220px" scrollable="true">[White "Anderssen, Adolf"][Black "Dufresne, Jean"] 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O d3 8. Qb3 Qf6 9. e5 Qg6 10. Re1 Nge7 11. Ba3 b5 12. Qxb5 Rb8 13. Qa4 Bb6 14. Nbd2 Bb7 15. Ne4 Qf5 16. Bxd3 Qh5 17. Nf6+ gxf6 18. exf6 Rg8 19. Rad1 Qxf3 20. Rxe7+ Nxe7 21. Qxd7+ Kxd7 22. Bf5+ Ke8 23. Bd7+ Kf8 24. Bxe7# 1:0</pgn>
 |}
 
 == Experimental features ==
@@ -171,18 +176,5 @@ Attribute <code>goto</code> (<code>last</code>):
 |}
 
 == Broken features ==
-=== Attributes movesWidth, movesHeight and scrollable ===
-
-These attributes are broken:
-* Moves are displayed below the board when they should appear on the right.
-* There is no scroll bar.
-
-The example below is taken from [http://mliebelt.github.io/PgnViewerJS/docu/examples.html#1050 this PgnViewerJS theme example].
-
-{| class=wikitable
-|- valign="top"
-|
-Attribute <code>movesWidth</code>, <code>movesHeight</code> and <code>scrollable</code>
-<pgn style="width: 390px" theme="chesscom" boardSize="200px" movesWidth="180px" movesHeight="220px" scrollable="true">[White "Anderssen, Adolf"][Black "Dufresne, Jean"] 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O d3 8. Qb3 Qf6 9. e5 Qg6 10. Re1 Nge7 11. Ba3 b5 12. Qxb5 Rb8 13. Qa4 Bb6 14. Nbd2 Bb7 15. Ne4 Qf5 16. Bxd3 Qh5 17. Nf6+ gxf6 18. exf6 Rg8 19. Rad1 Qxf3 20. Rxe7+ Nxe7 21. Qxd7+ Kxd7 22. Bf5+ Ke8 23. Bd7+ Kf8 24. Bxe7# 1:0</pgn>
-|}
+None.
 
