@@ -1,25 +1,28 @@
 {
     "name": "PgnJS",
-    "author": "Michaël Peeters",
-    "url": "http://www.mediawiki.org/wiki/Extension:PgnJS",
-    "description": "Embed chess games (boards and moves) in wiki page",
     "version": "0.4.0",
+    "author": [
+        "Michaël Peeters"
+    ],
+    "url": "http://www.mediawiki.org/wiki/Extension:PgnJS",
+    "description": "Display chess games (boards and moves) in PGN format interactively",
     "license-name": "Apache-2.0",
     "type": "parserhook",
     "AutoloadClasses": {
-        "PgnJSHooks": "PgnJS.hooks.php"
+        "PgnJSHooks": "PgnJS.hooks.php",
     },
-	"Hooks": {
-		"ParserFirstCallInit": [
-			"PgnJSHooks::onParserFirstCallInit"
-		]
-	},
+    "Hooks": {
+        "ParserFirstCallInit": [
+            "PgnJSHooks::onParserFirstCallInit"
+        ]
+    },
+    "MessagesDirs": {
+        "PgnJS": [
+            "i18n"
+        ]
+    },
     "ResourceModules": {
         "ext.PgnJS": {
-            "styles": [
-                "PgnViewerJS/dist/css/pgnvjs.css",
-                "PgnJS.css"
-            ],
             "scripts": [
                 "PgnViewerJS/chess.js/chess.js",
                 "PgnViewerJS/chessboardjs/js/chessboard.js",
@@ -31,9 +34,14 @@
                 "PgnViewerJS/js/pgn-parser.js",
                 "PgnViewerJS/js/pgnvjs.js",
                 "PgnViewerJS/js/i18next-1.11.2.js",
-                "PgnJS.js"
+                "modules/PgnJS.js"
+            ],
+            "styles": [
+                "PgnViewerJS/dist/css/pgnvjs.css",
+                "modules/PgnJS.css"
             ],
             "position": "top",
+            "messages": [],
             "dependencies": [ "jquery.ui.core", "jquery.ui.widget" ]
         }
     },

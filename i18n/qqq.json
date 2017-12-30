@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michaël Peeters"
+        ]
+    },
+    "pgnjs-desc": "{{desc|name=PgnJS|url=http:\/\/www.mediawiki.org\/wiki\/Extension:PgnJS }}",
+    "pgnjs-i18n-welcome": "Used to greet the user when reading the i18n\/??.json file.",
+}

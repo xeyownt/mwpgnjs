@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michaël Peeters"
+        ]
+    },
+    "pgnjs-desc": "Display chess games (boards and moves) in PGN format interactively",
+    "pgnjs-i18n-welcome": "Welcome to the localization file of the PgnJS extension.",
+}
