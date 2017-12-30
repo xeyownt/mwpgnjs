@@ -40,10 +40,13 @@ The **Stable** features are:
   * `timerTime`,
   * `locale`,
   * `boardSize`,
+  * `showFen`,
+  * `size`,
   * `layout`,
   * `movesWidth`,
-  * `movesHeight`, and
-  * `scrollable`.
+  * `movesHeight`,
+  * `scrollable`, and
+  * `headers`.
 * **CSS styling** via standard attribute `style`. This is handy for specifying the DIV width
   (e.g.  `style="width: 200px"`).
 

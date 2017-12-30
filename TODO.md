@@ -3,7 +3,6 @@
 ## Features
 
 ### PgnViewerJS features
-PgnViewerJS features that we implement:
 * [X] Support the 4 modes: board, view, edit and print.
 * [X] Support attribute `position` (in combination with PGN moves).
 * [ ] Support attribute `pgnFile`. But where would that file come from?
@@ -14,11 +13,13 @@ PgnViewerJS features that we implement:
 * [X] Support attribute `timerTime`.
 * [X] Support attribute `locale`.
 * [X] Support attribute `boardSize`.
-* [ ] Support non-documented attributes. These are for instance the attributes we see in the theme
-  examples, like `movesWidth`, `scrollable`, `movesHeight`. List of supported attributes:
-  * [X] `movesWidth`
-  * [X] `movesHeight`
-  * [X] `scrollable`
+* [X] Support attribute `showFen`.
+* [X] Support attribute `size`.
+* [X] Support attribute `layout`.
+* [X] Support attribute `movesWidth`.
+* [X] Support attribute `movesHeight`.
+* [X] Support attribute `scrollable`.
+* [X] Support attribute `headers`.
 * [ ] Support different layouts (through 
 [Allow different markup](http://mliebelt.github.io/PgnViewerJS/docu/examples.html#1217)).
 

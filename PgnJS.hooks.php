@@ -39,9 +39,12 @@ class PgnJS {
     const A_TIMER_TIME     = "timertime";     // Must be lower case or test fail!
     const A_LOCALE         = "locale";
     const A_BOARD_SIZE     = "boardsize";     // Must be lower case or test fail!
+    const A_SHOW_FEN       = "showfen";       // Must be lower case or test fail!
+    const A_SIZE           = "size";          // Must be lower case or test fail!
     const A_MOVES_WIDTH    = "moveswidth";    // Must be lower case or test fail!
     const A_MOVES_HEIGHT   = "movesheight";   // Must be lower case or test fail!
     const A_SCROLLABLE     = "scrollable";
+    const A_HEADERS        = "headers";
     const A_LAYOUT         = "layout";
     const A_GOTO           = "goto";
     const DEFAULTS         = array( 'style' => 'width: 240px', 'pieceStyle' => 'merida' );
@@ -62,10 +65,13 @@ class PgnJS {
         $a_timerTime    = isset($args[self::A_TIMER_TIME]) ? $args[self::A_TIMER_TIME] : null;
         $a_locale       = isset($args[self::A_LOCALE]) ? $args[self::A_LOCALE] : null;
         $a_boardSize    = isset($args[self::A_BOARD_SIZE]) ? $args[self::A_BOARD_SIZE] : null;
+        $a_showFen      = isset($args[self::A_SHOW_FEN]) ? $args[self::A_SHOW_FEN] : null;
+        $a_size         = isset($args[self::A_SIZE]) ? $args[self::A_SIZE] : null;
+        $a_layout       = isset($args[self::A_LAYOUT]) ? $args[self::A_LAYOUT] : null;
         $a_movesWidth   = isset($args[self::A_MOVES_WIDTH]) ? $args[self::A_MOVES_WIDTH] : null;
         $a_movesHeight  = isset($args[self::A_MOVES_HEIGHT]) ? $args[self::A_MOVES_HEIGHT] : null;
         $a_scrollable   = isset($args[self::A_SCROLLABLE]) ? $args[self::A_SCROLLABLE] : null;
-        $a_layout       = isset($args[self::A_LAYOUT]) ? $args[self::A_LAYOUT] : null;
+        $a_headers      = isset($args[self::A_HEADERS]) ? $args[self::A_HEADERS] : null;
         $a_goto         = isset($args[self::A_GOTO]) ? $args[self::A_GOTO] : null;
 
         $board = array();
@@ -114,6 +120,15 @@ class PgnJS {
         if( $a_boardSize ) {
             $board['boardSize'] = $a_boardSize;
         }
+        if( $a_showFen ) {
+            $board['showFen'] = ($a_showFen === 'true');
+        }
+        if( $a_size ) {
+            $board['size'] = $a_size;
+        }
+        if( $a_layout ) {
+            $board['layout'] = $a_layout;
+        }
         if( $a_movesWidth ) {
             $board['movesWidth'] = $a_movesWidth;
         }
@@ -123,8 +138,8 @@ class PgnJS {
         if( $a_scrollable ) {
             $board['scrollable'] = ($a_scrollable === 'true');
         }
-        if( $a_layout ) {
-            $board['layout'] = $a_layout;
+        if( $a_headers ) {
+            $board['headers'] = ($a_headers === 'true');
         }
         if( $a_goto && ($a_goto === 'last' or $a_goto === 'first') ) {
             $board['goto'] = $a_goto;
