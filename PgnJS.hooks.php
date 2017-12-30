@@ -87,7 +87,7 @@ class PgnJS {
         $id = "pgnjs".(++self::$board_id);
 
         if( $input ) {
-            $board['pgn'] = $input;
+            $board['pgn'] = $parser->recursiveTagParse( $input );
         } else {
             if( ($a_mode !== 'edit') and ($a_mode !== self::MODE_DEFAULTS) ) {
                 $a_mode = 'board';         // Fall-back to 'board' mode, unless in edit or defaults mode

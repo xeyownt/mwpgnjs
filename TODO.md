@@ -28,6 +28,7 @@
 * [ ] Align with PgnViewerJS issue on attribute `goto` (mliebelt/PgnViewerJS#75).
 * [X] Attribute `class` to specify classnames for CSS.
 * [X] Mode `defaults` to save configuration defaults (link with given classnames).
+* [X] Transclude wiki templates in PGN string.
 
 ## Wanted PgnViewerJS features
 
