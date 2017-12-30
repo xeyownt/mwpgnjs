@@ -273,5 +273,5 @@ The default values for the following attributes are read from the [[Special:Pref
 * play timer time (attribute <code>timerTime</code>), and
 * the locale (attribute <code>locale</code>).
 
-Of course these are just the defaults value and they can be overridden by specifying the attribute directly or through the mode <code>defaults</code>.
+Of course these are just the default values and they can be overridden by specifying the attribute directly or through the mode <code>defaults</code>.
 
