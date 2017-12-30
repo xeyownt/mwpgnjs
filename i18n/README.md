@@ -1,6 +1,5 @@
-I removed most of the other languages since I manually merge all upstream
-changes and its a lot of work.
+The JSON files are built from the php file. Just use the Makefile:
 
-If you need a specific language, you can find it in the
-[BoilerPlate](https://github.com/wikimedia/mediawiki-extensions-BoilerPlate/tree/master/i18n)
-extension.
+```bash
+make i18n
+```
