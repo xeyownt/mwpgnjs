@@ -70,6 +70,6 @@ i18n:
 .PHONY: release
 release: i18n
 	git add -A
-	git commit --allow-empty -m "Release v$$(cat VERSION)"
+	git commit --allow-empty --edit -m "Release v$$(cat VERSION)"
 	git tag v$$(cat VERSION)
 
