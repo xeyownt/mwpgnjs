@@ -17,6 +17,9 @@
         ],
         "GetPreferences": [
             "PgnJSHooks::onGetPreferences"
+        ],
+        "UserSaveOptions": [
+            "PgnJSHooks::onUserSaveOptions"
         ]
     },
     "MessagesDirs": {

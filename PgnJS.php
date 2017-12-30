@@ -27,6 +27,7 @@ if ( function_exists( 'wfLoadExtension' ) ) {
 } else {
     $wgHooks['ParserFirstCallInit'][] = 'PgnJSHooks::onParserFirstCallInit';
     $wgHooks['GetPreferences'][] = 'PgnJSHooks::onGetPreferences';
+    $wgHooks['UserSaveOptions'][] = 'PgnJSHooks::onUserSaveOptions';
 
     // $wgMessagesDirs['PgnJS'] = __DIR__ . '/i18n';
     $wgExtensionMessagesFiles['PgnJS'] = __DIR__ . '/i18n/PgnJS.i18n.php';

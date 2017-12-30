@@ -31,8 +31,8 @@
 * [X] Transclude wiki templates in PGN string.
 * [X] Configure theme, piece style... through the user preference page.
 * [X] Use user locale as default.
-* [ ] Use the locale for the current request (this implies reading it in javascript)
-* [ ] Add timerTime to user preference
+* [ ] Use the locale for the current request (this implies reading it in javascript).
+* [X] Add timerTime to user preference.
 
 ### Read locale for current request
 Locale can be overridden in the URL using `&uselang=xyz` (see

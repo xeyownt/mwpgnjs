@@ -30,7 +30,8 @@ class PgnJSHooks {
     public static function onGetPreferences( $user, &$preferences ) {
         global $wgUser;
 
-        $defaultTheme = $wgUser->getOption('pgnjs-theme');
+        $theme = $wgUser->getOption('pgnjs-theme');
+        $theme = $theme ? $theme : 'normal';
         $preferences['pgnjs-theme'] = array(
             'type' => 'select',
             'label-message' => 'prefs-pgnjs-theme', // a system message
@@ -47,11 +48,12 @@ class PgnJSHooks {
                 'Sportverlag' => 'sportverlag',
                 'Zeit' => 'zeit'
             ),
-            'default' => $defaultTheme ? $defaultTheme : 'normal',
+            'default' => $theme,
             'help-message' => 'prefs-pgnjs-theme-help', // a system message (optional)
         );
 
-        $defaultPieceStyle = $wgUser->getOption('pgnjs-pieceStyle');
+        $pieceStyle = $wgUser->getOption('pgnjs-pieceStyle');
+        $pieceStyle = $pieceStyle ? $pieceStyle : 'merida';
         $preferences['pgnjs-pieceStyle'] = array(
             'type' => 'select',
             'label-message' => 'prefs-pgnjs-pieceStyle', // a system message
@@ -69,12 +71,28 @@ class PgnJSHooks {
                 'USCF'  => 'uscf' ,
                 'Wikipedia' => 'wikipedia'
             ),
-            'default' => $defaultPieceStyle ? $defaultPieceStyle : 'merida',
+            'default' => $pieceStyle,
             'help-message' => 'prefs-pgnjs-pieceStyle-help', // a system message (optional)
+        );
+
+        $timerTime = $wgUser->getOption('pgnjs-timerTime');
+        $timerTime = $timerTime && ($timerTime >= 100) && ($timerTime <= 5000) ? $timerTime : 700;
+        $preferences['pgnjs-timerTime'] = array(
+            'type' => 'int',
+            'label-message' => 'prefs-pgnjs-timerTime', // a system message
+            'section' => 'rendering/PgnJS',
+            'default' => $timerTime,
+            'help-message' => 'prefs-pgnjs-timerTime-help', // a system message (optional)
         );
 
         // Required return value of a hook function.
         return true;
+    }
+
+    public static function onUserSaveOptions( User $user, array &$options ) {
+        if( ($options['pgnjs-timerTime'] < 100) || ($options['pgnjs-timerTime'] > 5000) ) {
+            $options['pgnjs-timerTime'] = 700;
+        }
     }
 }
 
@@ -131,9 +149,10 @@ class PgnJS {
 
         $board = array();
         $board_userprefs = array( 
-            'theme' => $wgUser->getOption('pgnjs-theme'),
+            'theme'      => $wgUser->getOption('pgnjs-theme'),
             'pieceStyle' => $wgUser->getOption('pgnjs-pieceStyle'),
-            'locale' => $wgLang->getCode()
+            'locale'     => $wgLang->getCode(),
+            'timerTime'  => $wgUser->getOption('pgnjs-timerTime'),
         );
         if( $a_mode !== self::MODE_DEFAULTS) {
             foreach( explode(' ', $a_class) as $c ) {
