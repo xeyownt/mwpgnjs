@@ -1,9 +1,17 @@
+// File generated automatically - DO NOT EDIT!
+// Edit instead file PgnJS.i18n.php, then run 'make i18n'
+
 {
     "@metadata": {
         "authors": [
-            "Michaël Peeters"
+            "Micha\u00ebl Peeters"
         ]
     },
     "pgnjs-desc": "Display chess games (boards and moves) in PGN format interactively",
     "pgnjs-i18n-welcome": "Welcome to the localization file of the PgnJS extension.",
+    "prefs-PgnJS": "Chess boards (<pgn> tag)",
+    "prefs-pgnjs-theme": "Theme",
+    "prefs-pgnjs-help-theme": "Theme used for the board",
+    "prefs-pgnjs-pieceStyle": "Piece style",
+    "prefs-pgnjs-help-pieceStyle": "The style for the pieces"
 }

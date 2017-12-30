@@ -10,6 +10,8 @@ all:
 	@echo
 	@echo "        !!! install AND install-1.24 WILL DELETE ALL NON-NECESSARY FILES !!!"
 	@echo
+	@echo "    make i18n              : Generate i18n json file"
+	@echo
 	@echo "    make new-version-patch : Generate new version number, increase PATCH."
 	@echo "    make new-version-minor : Generate new version number, increase MINOR."
 	@echo "    make new-version-major : Generate new version number, increase MAJOR."
@@ -61,8 +63,12 @@ new-version-minor: new-version-minor-helper new-version-helper
 .PHONY: new-version-major
 new-version-major: new-version-major-helper new-version-helper
 
+.PHONY: i18n
+i18n:
+	cd i18n; rm *.json; php php_to_json.php
+
 .PHONY: release
-release:
+release: i18n
 	git add -A
 	git commit --allow-empty -m "Release v$$(cat VERSION)"
 	git tag v$$(cat VERSION)

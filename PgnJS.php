@@ -12,6 +12,8 @@
  * @ingroup Extensions
  */
 
+// namespace MediaWiki\Extension\PgnJS;
+
 if ( function_exists( 'wfLoadExtension' ) ) {
     wfLoadExtension( 'PgnJS' );
     // Keep i18n globals so mergeMessageFileList.php doesn't break
@@ -24,6 +26,7 @@ if ( function_exists( 'wfLoadExtension' ) ) {
     return true;
 } else {
     $wgHooks['ParserFirstCallInit'][] = 'PgnJSHooks::onParserFirstCallInit';
+    $wgHooks['GetPreferences'][] = 'PgnJSHooks::onGetPreferences';
 
     // $wgMessagesDirs['PgnJS'] = __DIR__ . '/i18n';
     $wgExtensionMessagesFiles['PgnJS'] = __DIR__ . '/i18n/PgnJS.i18n.php';

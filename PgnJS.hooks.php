@@ -12,6 +12,8 @@
  * @ingroup Extensions
  */
 
+// namespace MediaWiki\Extension\PgnJS;
+
 class PgnJSHooks {
     public static function onParserFirstCallInit( Parser &$parser ) {
         // Register parser handler for tag <pgn>
@@ -23,6 +25,56 @@ class PgnJSHooks {
         $parser->getOutput()->addModules( 'ext.PgnJS' );
 
         return PgnJS::renderPgnjs($parser, $input, $args);
+    }
+
+    public static function onGetPreferences( $user, &$preferences ) {
+        global $wgUser;
+
+        $defaultTheme = $wgUser->getOption('pgnjs-theme');
+        $preferences['pgnjs-theme'] = array(
+            'type' => 'select',
+            'label-message' => 'prefs-pgnjs-theme', // a system message
+            'section' => 'rendering/PgnJS',
+            // Array of options. Key = text to display. Value = HTML <option> value.
+            'options' => array(
+                'Beyer' => 'beyer',
+                'Blue' => 'blue',
+                'Chess.com' => 'chesscom',
+                'Falken' => 'falken',
+                'Green' => 'green',
+                'Informator' => 'informator',
+                'Normal' => 'normal',
+                'Sportverlag' => 'sportverlag',
+                'Zeit' => 'zeit'
+            ),
+            'default' => $defaultTheme ? $defaultTheme : 'normal',
+            'help-message' => 'prefs-pgnjs-theme-help', // a system message (optional)
+        );
+
+        $defaultPieceStyle = $wgUser->getOption('pgnjs-pieceStyle');
+        $preferences['pgnjs-pieceStyle'] = array(
+            'type' => 'select',
+            'label-message' => 'prefs-pgnjs-pieceStyle', // a system message
+            'section' => 'rendering/PgnJS',
+            // Array of options. Key = text to display. Value = HTML <option> value.
+            'options' => array(
+                'Alpha' => 'alpha',
+                'Beyer' => 'beyer',
+                'Case' => 'case',
+                'Chess.com' => 'chesscom',
+                'Condal' => 'condal',
+                'Leipzig' => 'leipzig',
+                'Maya' => 'maya',
+                'Merida' => 'merida',
+                'USCF'  => 'uscf' ,
+                'Wikipedia' => 'wikipedia'
+            ),
+            'default' => $defaultPieceStyle ? $defaultPieceStyle : 'merida',
+            'help-message' => 'prefs-pgnjs-pieceStyle-help', // a system message (optional)
+        );
+
+        // Required return value of a hook function.
+        return true;
     }
 }
 
@@ -54,6 +106,8 @@ class PgnJS {
 
     // Render <pgn>
     static public function renderPgnjs( $parser, $input, array $args ) {
+        global $wgUser;
+
         $a_style        = isset($args[self::A_STYLE]) ? $args[self::A_STYLE] : null;
         $a_class        = isset($args[self::A_CLASS]) ? $args[self::A_CLASS] : null;
         $a_mode         = isset($args[self::A_MODE]) ? $args[self::A_MODE] : "view";
@@ -75,13 +129,18 @@ class PgnJS {
         $a_goto         = isset($args[self::A_GOTO]) ? $args[self::A_GOTO] : null;
 
         $board = array();
+        $board_userprefs = array( 
+            'theme' => $wgUser->getOption('pgnjs-theme'),
+            'pieceStyle' => $wgUser->getOption('pgnjs-pieceStyle')
+        );
         if( $a_mode !== self::MODE_DEFAULTS) {
             foreach( explode(' ', $a_class) as $c ) {
                 if( $c and isset(self::$board_class_defaults[$c]) ) {
                     $board += self::$board_class_defaults[$c];  // First listed class as precedence
                 }
             }
-            $board += self::$board_defaults;  // non-class defaults have less precedence
+            $board += self::$board_defaults;  // Anonymous defaults have less precedence
+            $board += $board_userprefs;       // Then user preferences even less precedence
             $board += self::DEFAULTS;         // Finally hard-coded defaults have least precedence
         }
         $id = "pgnjs".(++self::$board_id);

@@ -29,6 +29,7 @@
 * [X] Attribute `class` to specify classnames for CSS.
 * [X] Mode `defaults` to save configuration defaults (link with given classnames).
 * [X] Transclude wiki templates in PGN string.
+* [ ] Configure theme, piece style... through the user preference page.
 
 ## Wanted PgnViewerJS features
 
