@@ -1,6 +1,3 @@
-// File generated automatically - DO NOT EDIT!
-// Edit instead file PgnJS.i18n.php, then run 'make i18n'
-
 {
     "@metadata": {
         "authors": [
@@ -11,7 +8,9 @@
     "pgnjs-i18n-welcome": "Bienvenu au fichier de localisation de l'extension PgnJS",
     "prefs-PgnJS": "Echiquiers (tag <pgn>)",
     "prefs-pgnjs-theme": "Th\u00e8me",
-    "prefs-pgnjs-help-theme": "Th\u00e8me utilis\u00e9 pour le plateau",
+    "prefs-pgnjs-theme-help": "Th\u00e8me utilis\u00e9 pour le plateau",
     "prefs-pgnjs-pieceStyle": "Style des pi\u00e8ces",
-    "prefs-pgnjs-help-pieceStyle": "Le style pour les les pi\u00e8ces de l'\u00e9chiquier"
+    "prefs-pgnjs-pieceStyle-help": "Le style pour les les pi\u00e8ces de l'\u00e9chiquier",
+    "prefs-pgnjs-timerTime": "D\u00e9lai d'animation (ms)",
+    "prefs-pgnjs-timerTime-help-": "Le temps d'attente entre chaque mouvement quand le bouton Play est press\u00e9"
 }

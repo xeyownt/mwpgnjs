@@ -1,6 +1,3 @@
-// File generated automatically - DO NOT EDIT!
-// Edit instead file PgnJS.i18n.php, then run 'make i18n'
-
 {
     "@metadata": {
         "authors": [
@@ -10,8 +7,10 @@
     "pgnjs-desc": "{{desc|name=PgnJS|url=http:\/\/www.mediawiki.org\/wiki\/Extension:PgnJS }}",
     "pgnjs-i18n-welcome": "Used to greet the user when reading the i18n\/??.json file.",
     "prefs-PgnJS": "Section title in the preferences Appearance tab",
-    "prefs-pgnjs-theme": "Title for the Theme select group",
+    "prefs-pgnjs-theme": "Label for the Theme select group",
     "prefs-pgnjs-theme-help": "Help text for prefs-pgnjs-theme",
-    "prefs-pgnjs-pieceStyle": "Title for the piece style select group",
-    "prefs-pgnjs-pieceStyle-help": "Help text for prefs-pgnjs-pieceStyle"
+    "prefs-pgnjs-pieceStyle": "Label for the piece style select group",
+    "prefs-pgnjs-pieceStyle-help": "Help text for prefs-pgnjs-pieceStyle",
+    "prefs-pgnjs-timerTime": "Label for the timer time integer box",
+    "prefs-pgnjs-timerTime-help-": "Help text for prefs-pgnjs-timerTime"
 }

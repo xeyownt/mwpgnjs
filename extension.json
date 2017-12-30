@@ -9,7 +9,7 @@
     "license-name": "Apache-2.0",
     "type": "parserhook",
     "AutoloadClasses": {
-        "PgnJSHooks": "PgnJS.hooks.php",
+        "PgnJSHooks": "PgnJS.hooks.php"
     },
     "Hooks": {
         "ParserFirstCallInit": [
@@ -40,11 +40,11 @@
                 "PgnViewerJS/js/pgn-parser.js",
                 "PgnViewerJS/js/pgnvjs.js",
                 "PgnViewerJS/js/i18next-1.11.2.js",
-                "modules/PgnJS.js"
+                "modules/ext.PgnJS.js"
             ],
             "styles": [
                 "PgnViewerJS/dist/css/pgnvjs.css",
-                "modules/PgnJS.css"
+                "modules/ext.PgnJS.css"
             ],
             "position": "top",
             "messages": [],
