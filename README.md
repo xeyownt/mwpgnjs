@@ -62,7 +62,7 @@ The **Experimental** features are:
   displayed but the given configuration is recorded for reuse in next boards. Mode `defaults` records the
   value for all given attributes, except attribute `mode` and attribute `class`. Previously saved
   configuration are ignored when using this mode, so one can clear the defaults with an empty tag `<pgn
-  mode="defaults">`.
+  mode="defaults" />`.
 * **Attribute** `class` to specify one or more classname. This can be used for CSS styling, but also to
   organize defaults in separate classes. When using attribute `class` in mode `defaults`, the defaults
   are assigned to the given classnames. When used in other modes, the defaults assigned to each given
