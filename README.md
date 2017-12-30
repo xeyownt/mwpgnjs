@@ -49,6 +49,9 @@ The **Stable** features are:
   * `headers`.
 * **CSS styling** via standard attribute `style`. This is handy for specifying the DIV width
   (e.g.  `style="width: 200px"`).
+* Use MediaWiki **templates** to store complete boards or simply PGN strings (e.g. for translation
+  purpose).
+* Read configuration from **user preferences** (locale, theme, piece style and timer time).
 
 The **Experimental** features are:
 * **Attribute** `goto` to specify which move to display when board is created. For now only
