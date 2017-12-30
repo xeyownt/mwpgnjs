@@ -25,6 +25,8 @@ PgnViewerJS features that we implement:
 ### New features
 * [X] Attribute `goto` (to show board at a given position in view and edit mode).
 * [ ] Align with PgnViewerJS issue on attribute `goto` (mliebelt/PgnViewerJS#75).
+* [X] Attribute `class` to specify classnames for CSS.
+* [X] Mode `defaults` to save configuration defaults (link with given classnames).
 
 ## Wanted PgnViewerJS features
 

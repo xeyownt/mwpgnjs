@@ -48,9 +48,21 @@ The **Stable** features are:
   (e.g.  `style="width: 200px"`).
 
 The **Experimental** features are:
-* **Attribute** `goto` to specify which move to display when board is created. For now only `goto="last"`
-  is supported. This feature will remain available, but the keyword might change and it will be possible
-  to select any move in the given PGN (pending a PgnViewerJS feature request).
+* **Attribute** `goto` to specify which move to display when board is created. For now only
+  `goto="first"` and `goto="last"` are supported. This feature will remain available, but the keyword
+  might change and it will be possible to select any move in the given PGN (pending a PgnViewerJS feature
+  request).
+* **Mode** `defaults` to specify default configuration for next boards. When using this mode, no board is
+  displayed but the given configuration is recorded for reuse in next boards. Mode `defaults` records the
+  value for all given attributes, except attribute `mode` and attribute `class`. Previously saved
+  configuration are ignored when using this mode, so one can clear the defaults with an empty tag `<pgn
+  mode="defaults">`.
+* **Attribute** `class` to specify one or more classname. This can be used for CSS styling, but also to
+  organize defaults in separate classes. When using attribute `class` in mode `defaults`, the defaults
+  are assigned to the given classnames. When used in other modes, the defaults assigned to each given
+  classnames (if any) are loaded to configure the current `pgn` element, in addition to the anonymous
+  defaults (if any). In case of multiple defaults, the one of the first given classname takes precedence
+  over the next classname, and over any anonymous defaults.
 
 The **Broken** features are:
 * None known.
