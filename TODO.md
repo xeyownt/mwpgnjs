@@ -29,7 +29,18 @@
 * [X] Attribute `class` to specify classnames for CSS.
 * [X] Mode `defaults` to save configuration defaults (link with given classnames).
 * [X] Transclude wiki templates in PGN string.
-* [ ] Configure theme, piece style... through the user preference page.
+* [X] Configure theme, piece style... through the user preference page.
+* [X] Use user locale as default.
+* [ ] Use the locale for the current request (this implies reading it in javascript)
+* [ ] Add timerTime to user preference
+
+### Read locale for current request
+Locale can be overridden in the URL using `&uselang=xyz` (see
+[Manual:Language](https://www.mediawiki.org/wiki/Manual:Language)). This information is stored the
+context object, which must never be accessed from parser hooks (remember that parser results can be
+cached).
+
+The solution would then be to read the locale from Javascript context instead.
 
 ## Wanted PgnViewerJS features
 

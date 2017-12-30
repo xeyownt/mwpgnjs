@@ -107,6 +107,7 @@ class PgnJS {
     // Render <pgn>
     static public function renderPgnjs( $parser, $input, array $args ) {
         global $wgUser;
+        global $wgLang;
 
         $a_style        = isset($args[self::A_STYLE]) ? $args[self::A_STYLE] : null;
         $a_class        = isset($args[self::A_CLASS]) ? $args[self::A_CLASS] : null;
@@ -131,7 +132,8 @@ class PgnJS {
         $board = array();
         $board_userprefs = array( 
             'theme' => $wgUser->getOption('pgnjs-theme'),
-            'pieceStyle' => $wgUser->getOption('pgnjs-pieceStyle')
+            'pieceStyle' => $wgUser->getOption('pgnjs-pieceStyle'),
+            'locale' => $wgLang->getCode()
         );
         if( $a_mode !== self::MODE_DEFAULTS) {
             foreach( explode(' ', $a_class) as $c ) {
