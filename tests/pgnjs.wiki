@@ -130,10 +130,10 @@ Blue:
 {| class=wikitable
 |- valign="top"
 |
-Attribute <code>position</code> (to give a starting FEN):
+Attribute <code>position</code>:
 <pgn position="rnb1kbnr/pppp1ppp/4p3/8/5PPq/8/PPPPP2P/RNBQKBNR w KQkq - 1 3" />
 |
-Attribute <code>position</code> (combined with PGN):
+Attribute <code>position</code> with PGN:
 <pgn position="rnbqkbnr/pppp1ppp/4p3/8/5P2/8/PPPPP1PP/RNBQKBNR w KQkq - 0 2">2. g4 Qh4</pgn>
 |
 Attribute <code>showNotation</code>:
@@ -146,7 +146,7 @@ Attribute <code>timerTime</code>:
 <pgn timerTime=2000>1. f4 e6 2. g4 Qh4</pgn>
 |- valign="top"
 |
-Attribute <code>locale</code> (for now, only <code>en</code> and <code>de</code>):
+Attribute <code>locale</code>:
 <pgn locale="de">1. f4 e6 2. g4 Qh4</pgn>
 |
 Attribute <code>boardSize</code>:
@@ -156,25 +156,122 @@ Attributes <code>layout</code>, <code>movesWidth</code>, <code>movesHeight</code
 
 Taken from [http://mliebelt.github.io/PgnViewerJS/docu/examples.html#1050 PgnViewerJS theme examples] page.
 <pgn style="width: 390px" theme="chesscom" layout="left" boardSize="200px" movesWidth="180px" movesHeight="220px" scrollable="true">[White "Anderssen, Adolf"][Black "Dufresne, Jean"] 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O d3 8. Qb3 Qf6 9. e5 Qg6 10. Re1 Nge7 11. Ba3 b5 12. Qxb5 Rb8 13. Qa4 Bb6 14. Nbd2 Bb7 15. Ne4 Qf5 16. Bxd3 Qh5 17. Nf6+ gxf6 18. exf6 Rg8 19. Rad1 Qxf3 20. Rxe7+ Nxe7 21. Qxd7+ Kxd7 22. Bf5+ Ke8 23. Bd7+ Kf8 24. Bxe7# 1:0</pgn>
+|
+Attribute <code>showFen</code>:
+<pgn showFen=true>1. f4 e6 2. g4 Qh4</pgn>
+|- valign="top"
+|colspan=2|
+Attribute <code>size</code>:
+<pgn size=320px>1. f4 e6 2. g4 Qh4</pgn>
+|
+Attribute <code>headers</code>:
+<pgn headers=false>[White "Fool"][Black "Master"] 1. f4 e6 2. g4 Qh4</pgn>
 |}
 
 == Experimental features ==
 
 Here we list '''Experimental''' attributes that are subject to change in next releases.
 
-=== Attribute goto ===
+=== Attribute <code>goto</code> ===
 
-* For now, only <code>goto="last"</code> is supported. 
+* For now, only <code>goto="first"</code> and <code>goto="last"</code> are supported. 
 * Future release may give the possibility to go to any move (incl. variation).
 * Attribute might get renamed to align with PgnViewerJS if necessary.
 
 {| class=wikitable
 |- valign="top"
 |
-Attribute <code>goto</code> (<code>last</code>):
+Attribute <code>goto="last"</code>:
 <pgn goto=last>1. f4 e6 2. g4 Qh4</pgn>
+|}
+
+=== Mode <code>defaults</code> ===
+When using mode <code>defaults</code>, no board is displayed but the given configuration is recorded for reuse in next boards. Previously saved configuration are ignored when using this mode, so one can clear the defaults with an empty tag <code><nowiki><pgn mode="defaults" /></nowiki></code>.
+
+{| class=wikitable
+|- valign=top
+|
+The new defaults
+<pgn mode=defaults orientation=black pieceStyle=condal />
+<pgn mode=board >1. f4 e6 2. g4 Qh4</pgn>
+|
+Add more configuration
+<pgn mode=board theme=green>1. f4 e6 2. g4 Qh4</pgn>
+|
+Override defaults locally
+<pgn mode=board orientation=white>1. f4 e6 2. g4 Qh4</pgn>
+|
+Clear the defaults with
+
+<code><nowiki>
+<pgn mode=defaults />
+</nowiki></code>
+<pgn mode=defaults />
+<pgn mode=board>1. f4 e6 2. g4 Qh4</pgn>
+|}
+
+Default configurations can also be organized by '''classes'''. When using the <code>class</code> attribute in mode <code>defaults</code>, the defaults are assigned to the given classnames. When used in other modes, the defaults assigned to each given classnames (if any) are loaded to configure the current <code>pgn</code> element, in addition to the anonymous defaults (if any). In case of multiple defaults, the one of the first given classname takes precedence over the next classname, and over any anonymous defaults.
+
+{| class=wikitable
+|- valign=top
+|
+The new ''anonymous'' defaults
+<pgn mode=defaults theme=green pieceStyle=condal />
+<pgn>1. f4 e6 2. g4 Qh4</pgn>
+|
+The defaults for <code>class=small</code>
+<pgn mode=defaults class=small theme=sportverlag boardsize=200px />
+<pgn class=small>1. f4 e6 2. g4 Qh4</pgn>
+|
+The defaults for <code>class=opening</code>
+<pgn mode=defaults class=opening theme=zeit goto=last />
+<pgn class=opening>1. f4 e6 2. g4 Qh4</pgn>
+|
+The defaults for <code>class="opening small"</code>
+
+Opening theme takes precedence.
+<pgn class="opening small">1. f4 e6 2. g4 Qh4</pgn>
+|
+The defaults for <code>class="small opening"</code>
+
+small theme takes precedence.
+<pgn class="small opening">1. f4 e6 2. g4 Qh4</pgn>
 |}
 
 == Broken features ==
 None.
+
+== Combination with Mediawiki features ==
+=== Templates ===
+Templates <code><nowiki>{{template}}</nowiki></code> can define <code>pgn</code> defaults, render complete boards, or simply contain a PGN string (this could be used for instance to provide translated version of analysis).
+{| class=wikitable
+|- valign=top
+|
+The defaults from template<br/>
+<code><nowiki>{{PgnJSDefaults}}</nowiki></code>{{PgnJSDefaults}}
+<pgn/>
+|
+The defaults with <code>class=bigger</code>
+<pgn class=bigger/>
+|
+The Fool's Mate template<br/>
+<code><nowiki>{{PgnFoolsMate}}</nowiki></code>
+{{PgnFoolsMate}}
+|
+Using PGN string template<br/>
+<code><nowiki><pgn goto=last>{{PgnFoolsMatePgn}}</pgn></nowiki></code>
+<pgn goto=last>{{PgnFoolsMatePgn}}</pgn>
+|}
+
+=== Locale support ===
+The extension is fully localizable and reads the default locale from the [[Special:Preferences|User preference page]].
+
+=== User preferences ===
+The default values for the following attributes are read from the [[Special:Preferences|User preference page]]:
+* the theme (attribute <code>theme</code>),
+* piece style (attribute <code>pieceStyle</code>),
+* play timer time (attribute <code>timerTime</code>), and
+* the locale (attribute <code>locale</code>).
+
+Of course these are just the defaults value and they can be overridden by specifying the attribute directly or through the mode <code>defaults</code>.
 
