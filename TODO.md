@@ -65,6 +65,8 @@ Some of these features might already be listed in PgnViewerJS plans.
 * [ ] Annotation of squares (different colors) and arrows (different colors) per move, as annotation in
   PGN.
   * For arrows, see [this question on SO](https://stackoverflow.com/questions/25527902/drawing-arrows-on-a-chess-board-in-javascript).
+  * A solution could be to use a more powerful UI, like [Chessground](https://github.com/ornicar/chessground),
+    the open-source UI on lichess.org.
 
 ### Start at a user-given move (attribute `goto`)
 In inspector, the event attached to last button is:
