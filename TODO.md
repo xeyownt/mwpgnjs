@@ -62,6 +62,9 @@ Some of these features might already be listed in PgnViewerJS plans.
   wiki, is to give a lot of details about a game development, and show side snapshots of that game
   (usually with a given legend). That feature is similar to the `print` mode, but mixed with the ability
   to have a custom layout.
+* [ ] Annotation of squares (different colors) and arrows (different colors) per move, as annotation in
+  PGN.
+  * For arrows, see [this question on SO](https://stackoverflow.com/questions/25527902/drawing-arrows-on-a-chess-board-in-javascript).
 
 ### Start at a user-given move (attribute `goto`)
 In inspector, the event attached to last button is:
