@@ -48,7 +48,7 @@
             ],
             "position": "top",
             "messages": [],
-            "dependencies": [ "jquery.ui.core", "jquery.ui.widget" ]
+            "dependencies": [ "jquery.ui" ]
         }
     },
     "ResourceFileModulePaths": {
