@@ -30,6 +30,7 @@
     "ResourceModules": {
         "ext.PgnJS": {
             "scripts": [
+                "PgnViewerJS/js/jquery-ui.js",
                 "PgnViewerJS/chess.js/chess.js",
                 "PgnViewerJS/chessboardjs/js/chessboard.js",
                 "PgnViewerJS/chessboardjs/js/json3.min.js",
@@ -47,8 +48,7 @@
                 "modules/ext.PgnJS.css"
             ],
             "position": "top",
-            "messages": [],
-            "dependencies": [ "jquery.ui" ]
+            "messages": []
         }
     },
     "ResourceFileModulePaths": {
