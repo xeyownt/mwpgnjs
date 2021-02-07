@@ -78,6 +78,9 @@ PgnViewerJS/modules/pgn-viewer/lib/pgnv.js: PgnViewerJS/modules/pgn-viewer/node_
 	# An ugly patch. If this fails, it means chessground module changed
 	[ -e $</chessground/render.js ] && egrep -q 'return `\$${piece.color}(` \+ " " \+ `| )\$${piece.role}`;' $</chessground/render.js
 	sed -ri 's/return `\$$\{piece.color\} \$$\{piece.role\}`;/return `$${piece.color}` + " " + `$${piece.role}`;/' $</chessground/render.js
+	# Set the default theme back to brown, to avoid upsetting the unique user of this extension
+	[ -e PgnViewerJS/modules/pgn-viewer/src/pgnvjs.js ] && egrep -q '^ +theme: "(blue|brown)",$$' PgnViewerJS/modules/pgn-viewer/src/pgnvjs.js
+	sed -ri 's/^( +theme:) "blue",$$/\1 "brown",/' PgnViewerJS/modules/pgn-viewer/src/pgnvjs.js
 	cd $(@:/lib/pgnv.js=) && npm run build
 
 modules/pgnv.js: PgnViewerJS/modules/pgn-viewer/lib/pgnv.js
