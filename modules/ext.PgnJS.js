@@ -6,7 +6,7 @@ $( function () {
     // This code must not be executed before the document is loaded.
     // console.log( 'Start parsing ' + typeof window.PgnJSBoards);
     for (var id in window.PgnJSBoards) { 
-        // console.log( 'Found a board ' + id + ' in window: ' + window.PgnJSBoards[id]);
+        console.log( 'Found a board ' + id + ' in window: ' + JSON.stringify(window.PgnJSBoards[id]));
         var mode = window.PgnJSBoards[id].mode;
         delete window.PgnJSBoards[id].mode; // See PgnViewerJS doc: Don't try to set that on your own!
         switch(mode) {
