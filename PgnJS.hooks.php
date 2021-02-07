@@ -255,6 +255,9 @@ class PgnJS {
             $a_style = $board['style'];
             unset($board['style']);
 
+            // Cancel effect of <table>
+            $a_style = "border-spacing: 0px; border-collapse: separate; $a_style";
+
             $jsBoard = json_encode($board);
             $script_once = self::$board_id == 1 ? "<script>__globalCustomDomain = '$wgExtensionAssetsPath/PgnJS/modules/';</script>" : "";
             $script = "<script>window.PgnJSBoards = window.PgnJSBoards || {}; window.PgnJSBoards.$id = $jsBoard;</script>";
