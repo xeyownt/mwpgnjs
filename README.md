@@ -13,9 +13,7 @@ extension by yourself.
 ## Status
 
 Currently this extension is in *beta* status, ie. it is stable but not fully tested.
-The extension is regularly tested on
-* Mediawiki 1.27.4.
-* Mediawiki 1.22.1.
+The latest known compatible version of MediaWiki is 1.35.1.
 
 The extension contains many features, and future releases will likely add more. Some features might
 change in the future. The stability of each feature is detailed in the next section.
