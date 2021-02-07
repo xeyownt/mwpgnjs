@@ -123,6 +123,9 @@ Beyer (off its <code><nowiki><div></nowiki></code> even with <code>margin</code>
 |
 Blue:
 <pgn theme=blue>1. f4 e6 2. g4 Qh4</pgn>
+|
+Brown:
+<pgn theme=brown>1. f4 e6 2. g4 Qh4</pgn>
 |}
 
 === Other PgnViewerJS Attributes ===

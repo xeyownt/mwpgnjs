@@ -46,7 +46,8 @@ class PgnJSHooks {
                 'Informator' => 'informator',
                 'Normal' => 'normal',
                 'Sportverlag' => 'sportverlag',
-                'Zeit' => 'zeit'
+                'Zeit' => 'zeit',
+                'Brown' => 'brown'
             ),
             'default' => $theme,
             'help-message' => 'prefs-pgnjs-theme-help', // a system message (optional)
