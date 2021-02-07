@@ -150,11 +150,18 @@ class PgnJS {
 
         $board = array();
         $board_userprefs = array( 
-            'theme'      => $wgUser->getOption('pgnjs-theme'),
-            'pieceStyle' => $wgUser->getOption('pgnjs-pieceStyle'),
             'locale'     => $wgLang->getCode(),
-            'timerTime'  => $wgUser->getOption('pgnjs-timerTime'),
         );
+        // We don't want 'null' defaults.
+        if ($wgUser->getOption('pgnjs-theme')) {
+            $board_userprefs['theme'] = $wgUser->getOption('pgnjs-theme');
+        }
+        if ($wgUser->getOption('pgnjs-pieceStyle')) {
+            $board_userprefs['pieceStyle'] = $wgUser->getOption('pgnjs-pieceStyle');
+        }
+        if ($wgUser->getOption('pgnjs-timerTime')) {
+            $board_userprefs['timerTime'] = $wgUser->getOption('pgnjs-timerTime');
+        }
         if( $a_mode !== self::MODE_DEFAULTS) {
             foreach( explode(' ', $a_class) as $c ) {
                 if( $c and isset(self::$board_class_defaults[$c]) ) {
