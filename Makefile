@@ -67,3 +67,20 @@ release: i18n
 	git commit --allow-empty --edit -m "Release v$$(cat VERSION)"
 	git tag v$$(cat VERSION)
 
+PgnViewerJS/node_modules:
+	cd $(@D) && npm install
+
+PgnViewerJS/modules/pgn-viewer/node_modules: PgnViewerJS/node_modules
+	cd $(@D) && npm install
+
+.PHONY: PgnViewerJS/modules/pgn-viewer/lib/pgnv.js
+PgnViewerJS/modules/pgn-viewer/lib/pgnv.js: PgnViewerJS/modules/pgn-viewer/node_modules
+	cd $(@:/lib/pgnv.js=) && npm run build
+
+modules/pgnv.js: PgnViewerJS/modules/pgn-viewer/lib/pgnv.js
+	cp -r $(<D)/* $(@D)
+
+pgnv: modules/pgnv.js
+
+clean:
+	git clean -dxf
