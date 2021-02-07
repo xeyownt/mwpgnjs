@@ -75,6 +75,9 @@ PgnViewerJS/modules/pgn-viewer/node_modules: PgnViewerJS/node_modules
 
 .PHONY: PgnViewerJS/modules/pgn-viewer/lib/pgnv.js
 PgnViewerJS/modules/pgn-viewer/lib/pgnv.js: PgnViewerJS/modules/pgn-viewer/node_modules
+	# An ugly patch. If this fails, it means chessground module changed
+	[ -e $</chessground/render.js ] && egrep -q 'return `\$${piece.color}(` \+ " " \+ `| )\$${piece.role}`;' $</chessground/render.js
+	sed -ri 's/return `\$$\{piece.color\} \$$\{piece.role\}`;/return `$${piece.color}` + " " + `$${piece.role}`;/' $</chessground/render.js
 	cd $(@:/lib/pgnv.js=) && npm run build
 
 modules/pgnv.js: PgnViewerJS/modules/pgn-viewer/lib/pgnv.js
