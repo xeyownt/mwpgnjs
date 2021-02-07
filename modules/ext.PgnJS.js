@@ -1,9 +1,5 @@
 'use strict';
 
-// Let's export i18next correctly
-$.i18n = $.i18n || module.exports;
-i18n = $.i18n;
-
 // console.log('PgnJS.js loaded');
 
 $( function () {
