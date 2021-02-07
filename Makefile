@@ -20,8 +20,7 @@ all:
 
 .PHONY: install-clean
 install-clean:
-	rm -rf .git COPYING doc Makefile *.md VERSION img tests
-	mv -t . PgnViewerJS/dist PgnViewerJS/chess.js PgnViewerJS/chessboardjs PgnViewerJS/js && rm -rf PgnViewerJS && mkdir PgnViewerJS && mv -t PgnViewerJS chess.js chessboardjs dist js
+	rm -rf .git/ img/ PgnViewerJS/ tests/ *.md .gitmodules Makefile VERSION
 
 .PHONY: install
 install: install-clean
