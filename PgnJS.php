@@ -59,7 +59,7 @@ if ( function_exists( 'wfLoadExtension' ) ) {
 
     $wgExtensionCredits['parserhook'][] = array(
         'name'        => 'PgnJS',
-        'version'     => '0.5.0',
+        'version'     => '0.5.1',
         'license-name'=> 'Apache-2.0',
         'author'      => 'Michaël Peeters',
         'url'         => 'http://www.mediawiki.org/wiki/Extension:PgnJS',
