@@ -6,9 +6,8 @@ all:
 	@echo
 	@echo "Available targets:"
 	@echo "    make install           : Install as Mediawiki extension (since MW 1.25)."
-	@echo "    make install-1.24      : Install as Mediawiki extension (MW 1.24 or earlier)."
 	@echo
-	@echo "        !!! install AND install-1.24 WILL DELETE ALL NON-NECESSARY FILES !!!"
+	@echo "        !!! install WILL DELETE ALL NON-NECESSARY FILES !!!"
 	@echo
 	@echo "    make i18n              : Generate i18n json file"
 	@echo
@@ -28,11 +27,6 @@ install-clean:
 install: install-clean
 	# echo append in case LocalSettings is a symlink, to preserve symlink
 	egrep -q "^[[:blank:]]*wfLoadExtension[[:blank:]]*\([[:blank:]]*'$(EXT)'[[:blank:]]*\)[[:blank:]]*;[[:blank:]]*\$$" ../../LocalSettings.php || echo "wfLoadExtension( '$(EXT)' );" >> ../../LocalSettings.php
-
-.PHONY: install-1.24
-install-1.24: install-clean
-	# echo append in case LocalSettings is a symlink, to preserve symlink
-	egrep -q '^[[:blank:]]*require_once[[:blank:]]+"\$$IP/extensions/$(EXT)/$(EXT).php"[[:blank:]]*;[[:blank:]]*$$' ../../LocalSettings.php || echo 'require_once "$$IP/extensions/$(EXT)/$(EXT).php";' >> ../../LocalSettings.php
 
 .PHONY: new-version-patch-helper
 new-version-patch-helper:

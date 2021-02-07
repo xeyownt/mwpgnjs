@@ -94,6 +94,6 @@ $('#' + id + 'Buttonlast').trigger('click');
 
 ## Build
 
-* [ ] Automate sync'ing of PgnJS.php and extension.json.
+* [X] Automate sync'ing of PgnJS.php and extension.json. Done: we deprecated MW1.24.
 
 [//]: # ( vim: set tw=105: )

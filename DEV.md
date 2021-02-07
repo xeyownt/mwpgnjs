@@ -86,7 +86,6 @@ Currently we import only a subjet of the JS libraries that PgnViewJS distributes
 
 The list of libraries we import are:
 * In file `extension.json` (for MW1.25+).
-* In file `PgnJS.php` (for MW1.24).
 
 Each time we import a new version of PngViewJS, we must check that these lists
 are still ok and update if necessary. This is a bit cumbersome. Ideally PgnViewJS

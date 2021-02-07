@@ -74,24 +74,21 @@ The **Broken** features are:
 ## Installation
 
 The simplest is to clone the git repository in folder `extensions` of your wiki and run the `install`
-target (for MW 1.25 or above) or `install-1.24` (for MW 1.24 or older):
+target:
 
 ```bash
 cd /path/to/your/wiki/extensions
 git clone --recursive --depth 1 https://github.com/xeyownt/mwpgnjs PgnJS
 cd PgnJS
-make install             # For MW 1.25 or above
-make install-1.24        # For MW 1.24 or older
+make install             # Requires MW 1.25 or above
 ```
 Don't forget the `--recursive` option since the extension uses git submodules.
 
-`make install` / `make install-1.24` will delete all files that are not necessary for the extension to
+`make install` will delete all files that are not necessary for the extension to
 run, and add the following line at the end of `LocalSettings.php`:
 ```php
-// For MW 1.25 or above:
+// Requires MW 1.25 or above:
 wfLoadExtension( 'PgnJS' );
-// For MW 1.24 or older:
-require_once "$IP/extensions/PgnJS/PgnJS.php";
 ```
 
 Done! Navigate to `Special:Version` on your wiki to verify that the extension is successfully installed.
