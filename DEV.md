@@ -82,17 +82,19 @@ git push origin master --tags
 ```
 
 ### Sync with PgnViewerJS
-Currently we import only a subjet of the JS libraries that PgnViewJS distributes.
+Since upgrade to PgnViewerJS 1.4.3, we import the library by building it with npm from the GitHub
+repository, which creates a single file `pgnv.js` and a set of asset files.
 
-The list of libraries we import are:
+This is done with the make target `pgnv`:
+
+```
+make pgnv
+```
+
+Some patches are applied on-the-fly. The import may fail if these patches are no longer
+applicable with a more recent version of PgnViewerJS. See Makefile for the patch details.
+
+To import PgnviewerJS, we simply add it to the list of JS files that MW ResourceLoader must load for us:
 * In file `extension.json` (for MW1.25+).
-
-Each time we import a new version of PngViewJS, we must check that these lists
-are still ok and update if necessary. This is a bit cumbersome. Ideally PgnViewJS
-would export a single library that we would import. However 2 issues prevent this:
-
-* Issue #3 - i18next is not exported correctly.
-* Issue #4 - Must not import another jQuery library.
-
 
 [//]: # ( vim: set tw=105: )
