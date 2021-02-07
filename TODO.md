@@ -87,6 +87,7 @@ $('#' + id + 'Buttonlast').trigger('click');
 * [ ] Import back CSS delivered with FontAwesome / PgnViewerJS.
 * [ ] Sanitize PGN text in <pgn> tag. What if it contains double-quotes `"`?
 * [ ] Sanitize <pgn> tag attributes?
+* [ ] Find a better solution to define `__globalCustomDomain` that adding a single `<script>` element.
 
 ## MediaWiki
 

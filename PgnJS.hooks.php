@@ -126,6 +126,7 @@ class PgnJS {
     static public function renderPgnjs( $parser, $input, array $args ) {
         global $wgUser;
         global $wgLang;
+        global $wgExtensionAssetsPath;
 
         $a_style        = isset($args[self::A_STYLE]) ? $args[self::A_STYLE] : null;
         $a_class        = isset($args[self::A_CLASS]) ? $args[self::A_CLASS] : null;
@@ -248,10 +249,11 @@ class PgnJS {
             unset($board['style']);
 
             $jsBoard = json_encode($board);
+            $script_once = self::$board_id == 1 ? "<script>__globalCustomDomain = '$wgExtensionAssetsPath/PgnJS/modules/';</script>" : "";
             $script = "<script>window.PgnJSBoards = window.PgnJSBoards || {}; window.PgnJSBoards.$id = $jsBoard;</script>";
 
             $class_attr = $a_class ? " class=\"$a_class\"" : "";
-            return "<div id=\"$id\"$class_attr style=\"$a_style\"></div>$script";
+            return "<div id=\"$id\"$class_attr style=\"$a_style\"></div>$script_once$script";
         }
     }
 }
