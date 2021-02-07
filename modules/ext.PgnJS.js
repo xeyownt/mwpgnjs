@@ -15,24 +15,24 @@ $( function () {
         delete window.PgnJSBoards[id].mode; // See PgnViewerJS doc: Don't try to set that on your own!
         switch(mode) {
             case "board":
-                window.PgnJSBoards[id] = pgnBoard(id, window.PgnJSBoards[id]);
+                window.PgnJSBoards[id] = PGNV.pgnBoard(id, window.PgnJSBoards[id]);
                 break;
             case "view":
                 go_to = window.PgnJSBoards[id].goto;
-                window.PgnJSBoards[id] = pgnView(id, window.PgnJSBoards[id]);
+                window.PgnJSBoards[id] = PGNV.pgnView(id, window.PgnJSBoards[id]);
                 if( go_to && go_to === 'last' ) {
                     $('#' + id + 'Buttonlast').trigger('click');
                 }
                 break;
             case "edit":
                 go_to = window.PgnJSBoards[id].goto;
-                window.PgnJSBoards[id] = pgnEdit(id, window.PgnJSBoards[id]);
+                window.PgnJSBoards[id] = PGNV.pgnEdit(id, window.PgnJSBoards[id]);
                 if( go_to && go_to === 'last' ) {
                     $('#' + id + 'Buttonlast').trigger('click');
                 }
                 break;
             case "print":
-                window.PgnJSBoards[id] = pgnPrint(id, window.PgnJSBoards[id]);
+                window.PgnJSBoards[id] = PGNV.pgnPrint(id, window.PgnJSBoards[id]);
                 break;
             default:
                 console.warn("Unknown mode " + mode);
