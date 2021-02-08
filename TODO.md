@@ -88,6 +88,8 @@ $('#' + id + 'Buttonlast').trigger('click');
 * [ ] Sanitize PGN text in <pgn> tag. What if it contains double-quotes `"`?
 * [ ] Sanitize <pgn> tag attributes?
 * [ ] Find a better solution to define `__globalCustomDomain` that adding a single `<script>` element.
+* [ ] How can we boost rendering performance? Can we do Server-Side Rendering (ask PgnViewerJS) to render
+  in PHP and serve that as a static board, then click a button will go interactive, possibly with delay.
 
 ## MediaWiki
 
