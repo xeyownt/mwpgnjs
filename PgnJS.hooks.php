@@ -89,9 +89,17 @@ class PgnJSHooks {
         return true;
     }
 
+    // Deprecated in MW 1.37, removed in MW 1.38
     public static function onUserSaveOptions( User $user, array &$options ) {
         if( ($options['pgnjs-timerTime'] < 100) || ($options['pgnjs-timerTime'] > 5000) ) {
             $options['pgnjs-timerTime'] = 700;
+        }
+    }
+
+    // From MW 1.37 onwards
+    public static function onSaveUserOptions( UserIdentity $user, array &$modifiedOptions, array $originalOptions ) {
+        if( ($originalOptions['pgnjs-timerTime'] < 100) || ($originalOptions['pgnjs-timerTime'] > 5000) ) {
+            $modifiedOptions['pgnjs-timerTime'] = 700;
         }
     }
 }
@@ -254,6 +262,16 @@ class PgnJS {
             return "<div id=\"$id\"$class_attr style=\"$a_style\"></div>$script";
         }
     }
+}
+
+$mediaWikiVersion = defined( 'MW_VERSION' ) ? MW_VERSION : null;
+
+if (version_compare($mediaWikiVersion, '1.37', '<')) {
+    // Use the old hook name for versions up to 1.36
+    $GLOBALS['wgHooks']['UserSaveOptions'][] = 'PgnJSHooks::onUserSaveOptions';
+} else {
+    // Use the new hook name for versions 1.37 and onwards
+    $GLOBALS['wgHooks']['SaveUserOptions'][] = 'PgnJSHooks::onSaveUserOptions';
 }
 
 ?>
